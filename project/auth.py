@@ -25,7 +25,8 @@ def login_post():
     # take the user supplied password, hash it, and compare it to the hashed password in database
     if not user or not check_password_hash(user.contrasena, contraseña): 
         
-        return redirect(url_for('auth.login'),msg='Please check your login details and try again.') # if user doesn't exist or password is wrong, reload the page
+        return render_template('accounts/login.html',
+                               msg='Correo o Contraseña invalidos') # if user doesn't exist or password is wrong, reload the page
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
@@ -48,7 +49,8 @@ def signup_post():
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         
-        return redirect(url_for('auth.signup'), msg='Email address already exists')
+        return render_template('accounts/register.html',
+                               msg='Ese correo ya existe')
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
     new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='trader', estatusUsuario=1)
