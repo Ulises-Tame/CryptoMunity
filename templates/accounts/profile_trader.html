@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Settings {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+        
+        </div>
+        
+    </div>
+    <div class="perfil">
+        <div class="col-12 col-xl-4-profile">
+            <div class="perfil">
+                <div class="col-12 justify-content-between mb-4">
+                    <div class="card shadow border-0 text-center p-0">
+                        <div class="profile-cover rounded-top" data-background="/static/assets/img/profile-cover.jpg"></div>
+                        <div class="card-body pb-5">
+                            <img src="/static/assets/img/team/profile-picture-1.jpg" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                            <h4 class="h3">
+                                {{ current_user.username }}
+                            </h4>
+                            <h5 class="fw-normal">
+                                Trader
+                            </h5>
+                            <p class="text-gray mb-4">
+                                {{ current_user.email }}
+                            </p>
+                            <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
+                                <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                Página principal
+                            </a>
+                        </div>
+                      </div>
+                </div>
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
