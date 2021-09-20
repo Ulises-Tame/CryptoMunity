@@ -26,9 +26,8 @@
                                     {% endif %}                                     
                                 </p> 
                             </div>
-                            <form method="post" action="" class="mt-4">
+                            <form method="POST" action="{{ url_for('auth.login') }}" class="mt-4">
                                 
-                                {{ form.hidden_tag() }}
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
@@ -37,7 +36,8 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <span class="fas fa-user-circle"></span>
                                         </span>
-                                        {{ form.username(placeholder="Correo", class="form-control") }}
+                                        <input name="correo" type="email" placeholder="Correo", class="form-control" required>
+
                                     </div>  
                                 </div>
                                 <!-- End of Form -->
@@ -49,7 +49,7 @@
                                             <span class="input-group-text" id="basic-addon2">
                                                 <span class="fas fa-unlock-alt"></span>
                                             </span>
-                                            {{ form.password(placeholder="Contraseña", class="form-control", type="password") }}
+                                            <input placeholder="Contraseña" class="form-control" type="password" name="contraseña" required>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
@@ -69,10 +69,11 @@
                             </form>
                             <br />
                     
+                            <label>Registrate</label>
                             <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="fw-normal">
-                                    Registrate
-                                    <a href="{{ url_for('authentication_blueprint.register') }}" class="fw-bold">Crear cuenta</a>
+                                <span class="fw-normal">                                
+                                    <a href="{{ url_for('auth.signup') }}" class="fw-bold p-sm-4">Trader</a>
+                                    <a href="{{ url_for('auth.signup') }}" class="fw-bold  p-sm-4">Investigador</a>
                                 </span>
                             </div>
                         </div>
