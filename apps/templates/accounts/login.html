@@ -22,7 +22,7 @@
                                     {% if msg %}
                                         {{ msg | safe }}
                                     {% else %}
-                                        Trader/Investigador
+                                        Bienvenido a CryptoMunity
                                     {% endif %}                                     
                                 </p> 
                             </div>
@@ -68,11 +68,11 @@
                                 </div>
                             </form>
                             <br />
-                    
+                            <label>Registrate</label>
                             <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="fw-normal">
-                                    Registrate
-                                    <a href="{{ url_for('authentication_blueprint.register') }}" class="fw-bold">Crear cuenta</a>
+                                <span class="fw-normal">                                
+                                    <a href="{{ url_for('authentication_blueprint.register') }}" class="fw-bold p-sm-4">Trader</a>
+                                    <a href="{{ url_for('authentication_blueprint.register') }}" class="fw-bold  p-sm-4">Investigador</a>
                                 </span>
                             </div>
                         </div>
