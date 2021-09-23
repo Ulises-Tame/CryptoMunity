@@ -3,4 +3,4 @@ flask-mysql
 flask-login
 pymysql
 flask_sqlalchemy
-gunicorn==20.0.4
+gunicorn
