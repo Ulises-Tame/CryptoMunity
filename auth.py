@@ -3,8 +3,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
-from .models import User
-from . import db
+from models import User
+from run import db
 
 auth = Blueprint('auth', __name__, url_prefix= '')
 
@@ -53,7 +53,37 @@ def signup_post():
                                msg='Ese correo ya existe')
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='trader', estatusUsuario=1)
+    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Trader', estatusUsuario=1)
+
+    # add the new user to the database
+    db.session.add(new_user)
+    db.session.commit()
+    db.session.close()
+
+    return render_template('accounts/login.html', msg='¡Listo! Cuenta Creada' )
+
+@auth.route('/investigador')
+def investigador():
+    return render_template('accounts/register_invest.html')
+
+@auth.route('/investigador', methods=['POST'])
+def investigador_post():
+
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    telefono = request.form['telefono']
+    contraseña = request.form['contraseña']
+    correo = request.form['correo']
+    
+    user = User.query.filter_by(correoUsuario=correo).first() # if this returns a user, then the email already exists in database
+
+    if user: # if a user is found, we want to redirect back to signup page so user can try again  
+        
+        return render_template('accounts/register_invest.html',
+                               msg='Ese correo ya existe')
+
+    # create new user with the form data. Hash the password so plaintext version isn't saved.
+    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Trader', estatusUsuario=1)
 
     # add the new user to the database
     db.session.add(new_user)

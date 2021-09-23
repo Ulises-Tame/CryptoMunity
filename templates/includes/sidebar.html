@@ -43,17 +43,12 @@
                 </a>
               </li>
               <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-              <li class="nav-item" >
-                <a class="nav-link" href="{{ url_for('auth.logout') }}" >
-                  <span class="sidebar-icon">
-                  <span class="fas fa-sign-out-alt text-danger">
-                  </span>
-                  </span>
-                  <span>
-                    Logout
-                  </span>
+              <div class="d-block">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-secondary btn-sm d-inline-flex align-items-center">
+                  <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>            
+                  Cerrar Sesión
                 </a>
-              </li>
+              </div>
             </ul>
           </div>
         </nav>

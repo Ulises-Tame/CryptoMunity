@@ -3,7 +3,7 @@
                 <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
                   <div class="d-flex align-items-center">
                     <!-- Search form -->
-                    <form class="navbar-search form-inline" id="navbar-search-main">
+                    <!--form class="navbar-search form-inline" id="navbar-search-main">
                       <div class="input-group input-group-merge search-bar">
                           <span class="input-group-text" id="topbar-addon">
                             <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -12,7 +12,7 @@
                           </span>
                           <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
                       </div>
-                    </form>
+                    </form-->
                     <!-- / Search form -->
                   </div>
                   <!-- Navbar links -->
@@ -132,7 +132,7 @@
                           <img class="avatar rounded-circle" alt="Image placeholder" src="/static/assets/img/team/profile-picture-3.jpg">
                           <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                             <span class="mb-0 font-small fw-bold text-gray-900">
-                              Current User: <strong>{{ current_user.username }}</strong>
+                              Current User: <strong>{{ current_user.nombreUsuario }}</strong>
                             </span>
                           </div>
                         </div>
@@ -155,7 +155,7 @@
                           Support
                         </a>
                         <div role="separator" class="dropdown-divider my-1"></div>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ url_for('authentication_blueprint.logout') }}">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ url_for('auth.logout') }}">
                           <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>                
                           Logout
                         </a>
