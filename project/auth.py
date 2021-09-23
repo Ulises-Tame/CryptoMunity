@@ -44,7 +44,7 @@ def signup_post():
     telefono = request.form['telefono']
     contraseña = request.form['contraseña']
     correo = request.form['correo']
-
+    
     user = User.query.filter_by(correoUsuario=correo).first() # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
@@ -58,8 +58,9 @@ def signup_post():
     # add the new user to the database
     db.session.add(new_user)
     db.session.commit()
+    db.session.close()
 
-    return redirect(url_for('auth.login'))
+    return render_template('accounts/login.html', msg='¡Listo! Cuenta Creada' )
 
 @auth.route('/logout')
 @login_required

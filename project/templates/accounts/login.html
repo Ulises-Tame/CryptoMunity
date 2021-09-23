@@ -22,7 +22,7 @@
                                     {% if msg %}
                                         {{ msg | safe }}
                                     {% else %}
-                                        Bienvenido a CryptoMunity
+                                        Trader/Investigador
                                     {% endif %}                                     
                                 </p> 
                             </div>
@@ -31,7 +31,7 @@
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="email">Correo</label>
+                                    <label for="email">Usuario</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <span class="fas fa-user-circle"></span>
@@ -64,12 +64,12 @@
                                     </div>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="login" class="btn btn-gray-800">Iniciar sesión</button>
+                                    <button type="submit" name="login" class="btn btn-gray-800">Log in</button>
                                 </div>
                             </form>
                             <br />
                     
-                            <label>Registrarme como:</label>
+                            <label>Registrate Como:</label>
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">                                
                                     <a href="{{ url_for('auth.signup') }}" class="fw-bold p-sm-4">Trader</a>
