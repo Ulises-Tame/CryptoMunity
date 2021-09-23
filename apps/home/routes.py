@@ -15,6 +15,12 @@ def index():
 
     return render_template('home/index.html', segment='index')
 
+@blueprint.route('/cryptos')
+@login_required
+def cryptos():
+
+    return render_template('home/cryptos.html', segment='cryptos')
+
 
 @blueprint.route('/<template>')
 @login_required
@@ -36,7 +42,6 @@ def route_template(template):
 
     except:
         return render_template('home/page-500.html'), 500
-
 
 # Helper - Extract current page name from request
 def get_segment(request):
