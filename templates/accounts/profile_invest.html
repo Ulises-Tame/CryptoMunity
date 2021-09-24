@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Perfil {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">    
+    </div>
+    <div class="perfil">
+        <div class="col-12 col-xl-4-profile">
+            <div class="perfil">
+                <div class="col-12 justify-content-between mb-4">
+                    <div class="card shadow border-0 text-center p-0">
+                        <div class="profile-cover rounded-top" data-background="/static/assets/img/bitcoin.jpg"></div>
+                        <div class="card-body pb-5">
+                            <img src="/static/assets/img/investigador.png" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                            <h4 class="h3">
+                                {{ name }}
+                            </h4>
+                            <h5 class="fw-normal">
+                                {{ current_user.tipoUsuario }}
+                            </h5>
+                            <p class="text-gray mb-4">
+                                {{ current_user.correoUsuario }}
+                            </p>
+                            <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
+                                <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                Página principal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body border-0 shadow mb-4 mb-xl-0">
+                    <h2 class="h5 mb-4">Artículos Publicados</h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+                            <div>
+                                <h3 class="h6 mb-1">Company News</h3>
+                                <p class="small pe-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptates ex atque quaerat cupiditate assumenda excepturi autem neque ipsa deserunt sapiente exercitationem. Consectetur optio architecto, dolorem accusamus quisquam asperiores labore.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <form method="POST" action="" class="mt-4">
+                    <div class="form-group mb-4">
+                        <label for="textarea">Publicar Artículo</label>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" required>             
+                        </div>
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="Ingresa algo para publicar..." name="publicación" maxlength="400" id="textarea" rows="4"></textarea>                      
+                        </div>
+                    <div>
+                        <button class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" type="submit">
+                            <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path></svg>
+                            Publicar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
