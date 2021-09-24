@@ -13,3 +13,14 @@ class User(UserMixin, db.Model):
     contrasena = db.Column(db.String(100))
     tipoUsuario = db.Column(db.String(250), nullable=False)
     estatusUsuario = db.Column(db.Integer, nullable=True)
+
+class Articulos(db.Model):
+    __tablename__ = 'Articulos'
+    id = db.Column('IdArticulos',db.Integer, primary_key=True)
+    nombreArticulo = db.Column(db.String(80), nullable=False)
+    autorArticulo= db.Column(db.String(80), nullable=False)
+    articulo = db.Column(db.Text, nullable=False)
+    fechaDePublicacion= db.Column(db.Date, nullable=True)
+    noEdicion = db.Column(db.Integer,nullable=False)
+    estatusArticulo = db.Column(db.Integer, nullable=False)
+    idUsuario = db.Column(db.Integer, nullable=False)

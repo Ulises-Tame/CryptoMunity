@@ -16,7 +16,6 @@ def login():
 def login_post():
     correo = request.form.get('correo')
     contraseña = request.form.get('contraseña')
-    print(contraseña)
     remember = True if request.form.get('remember') else False
 
     user = User.query.filter_by(correoUsuario=correo).first()
@@ -30,7 +29,10 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    return redirect(url_for('main.profile'))
+    if user.tipoUsuario=='Trader': 
+        return redirect(url_for('main.profile'))
+    else:
+        return redirect(url_for('main.profile_investigador'))
 
 @auth.route('/signup')
 def signup():
@@ -83,7 +85,7 @@ def investigador_post():
                                msg='Ese correo ya existe')
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Trader', estatusUsuario=1)
+    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Investigador', estatusUsuario=1)
 
     # add the new user to the database
     db.session.add(new_user)
