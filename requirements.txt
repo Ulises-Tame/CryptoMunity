@@ -4,7 +4,6 @@ flask-login
 pymysql
 flask_sqlalchemy
 sqlalchemy
-gunicorn
 python-decouple
 gunicorn
 jinja2
