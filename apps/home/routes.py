@@ -19,7 +19,7 @@ def index():
 @login_required
 def cryptos():
 
-    return render_template('home/cryptos.html', segment='cryptos')
+    return render_template('home/trader.html', segment='trader')
 
 
 @blueprint.route('/<template>')
