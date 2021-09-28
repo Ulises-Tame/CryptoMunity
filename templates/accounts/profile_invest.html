@@ -18,7 +18,7 @@
                         <div class="card-body pb-5">
                             <img src="/static/assets/img/investigador.png" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
                             <h4 class="h3">
-                                {{ name }}
+                                {{ nombre }}
                             </h4>
                             <h5 class="fw-normal">
                                 {{ current_user.tipoUsuario }}
@@ -38,12 +38,14 @@
                 <div class="card card-body border-0 shadow mb-4 mb-xl-0">
                     <h2 class="h5 mb-4">Artículos Publicados</h2>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+                        {% for articulos in articulos_user %}
+                        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom"> 
                             <div>
-                                <h3 class="h6 mb-1">Company News</h3>
-                                <p class="small pe-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptates ex atque quaerat cupiditate assumenda excepturi autem neque ipsa deserunt sapiente exercitationem. Consectetur optio architecto, dolorem accusamus quisquam asperiores labore.</p>
+                                <h3 class="h6 mb-1">{{ articulos.nombreArticulo }}</h3>
+                                <p class="small pe-4">{{ articulos.articulo}}</p>
                             </div>
                         </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <form method="POST" action="" class="mt-4">

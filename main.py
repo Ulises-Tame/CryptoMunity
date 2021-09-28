@@ -1,9 +1,10 @@
 # main.py
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, json
 from flask_login import login_required, current_user
-from models import Articulos
+from include.models import Articulos
 from run import db
+from include.DAO import get_articulos_by_id
 
 main = Blueprint('main', __name__, url_prefix= '')
 
@@ -19,18 +20,18 @@ def profile():
 @main.route('/profile_investigador')
 @login_required
 def profile_investigador():
-    return render_template('accounts/profile_invest.html', name=current_user.nombreUsuario, segment='profile')
+    articulos_user = get_articulos_by_id(current_user.id)
+    
+    return render_template('accounts/profile_invest.html', nombre=current_user.nombreUsuario, segment='profile', articulos_user=articulos_user)
 
 @main.route('/profile_investigador', methods=['POST'])
 @login_required
 def profile_investigador_post():
     publicación = request.form['publicación']
     titulo = request.form['titulo']
-    
     nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,idUsuario=current_user.id)
-    print (publicación, titulo)
     db.session.add(nuevo_articulo)
     db.session.commit()
-    fila=[titulo,publicación]
+    articulos_user= get_articulos_by_id(current_user.id)
  
-    return render_template('accounts/profile_invest.html', name=current_user.nombreUsuario, segment='profile')
+    return render_template('accounts/profile_invest.html', name=current_user.nombreUsuario, segment='profile', articulos_user=articulos_user)

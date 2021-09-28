@@ -3,8 +3,9 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
-from models import User
+from include.models import User
 from run import db
+from include.DAO import get_user_by_email
 
 auth = Blueprint('auth', __name__, url_prefix= '')
 
@@ -18,7 +19,7 @@ def login_post():
     contraseña = request.form.get('contraseña')
     remember = True if request.form.get('remember') else False
 
-    user = User.query.filter_by(correoUsuario=correo).first()
+    user = get_user_by_email(correo)
 
     # check if user actually exists
     # take the user supplied password, hash it, and compare it to the hashed password in database
@@ -47,7 +48,7 @@ def signup_post():
     contraseña = request.form['contraseña']
     correo = request.form['correo']
     
-    user = User.query.filter_by(correoUsuario=correo).first() # if this returns a user, then the email already exists in database
+    user = get_user_by_email(correo) # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         
@@ -77,7 +78,7 @@ def investigador_post():
     contraseña = request.form['contraseña']
     correo = request.form['correo']
     
-    user = User.query.filter_by(correoUsuario=correo).first() # if this returns a user, then the email already exists in database
+    user = get_user_by_email(correo) # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         
