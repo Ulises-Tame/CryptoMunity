@@ -1,6 +1,6 @@
 # main.py
 
-from flask import Blueprint, render_template, request, json
+from flask import Blueprint, render_template, request, json, redirect, url_for
 from flask_login import login_required, current_user
 from include.models import Articulos
 from run import db
@@ -15,13 +15,16 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile')
+    if current_user.tipoUsuario == 'Trader':
+        return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile')
+    else:
+        return redirect(url_for('main.profile_investigador'))
 
 @main.route('/profile_investigador')
 @login_required
 def profile_investigador():
     articulos_user = get_articulos_by_id(current_user.id)
-    
+
     return render_template('accounts/profile_invest.html', nombre=current_user.nombreUsuario, segment='profile', articulos_user=articulos_user)
 
 @main.route('/profile_investigador', methods=['POST'])
