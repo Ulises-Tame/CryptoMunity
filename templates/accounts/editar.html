@@ -1,0 +1,62 @@
+{% extends "layouts/base_invest.html" %}
+
+{% block title %} Perfil {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  
+    <div class="perfil">
+        <div class="col-12 col-xl-4-profile">
+            <div class="perfil">
+                <form method="POST" action="" class="mt-4">
+                    <!--div class="form-group mb-4"-->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="textarea">Publicar Artículo</label>
+                                <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" required value="{{ articulo.nombreArticulo }}"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="last_name">Cryptomoneda Relacionada</label>
+                                <select class="form-select mb-0" name="crypto" id="crypto" aria-label="Cryptomoneda">
+                                    <option value="BTC">BTC</option>
+                                    <option value="ETH">ETH</option>
+                                    <option value="ADA">ADA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="Ingresa algo para publicar..." name="publicación" maxlength="400" id="textarea" rows="4">{{articulo.articulo}}</textarea>                      
+                        </div>
+                        <!--div class="col-md-6 mb-3">
+                            <select aria-placeholder="Selecciona la cryptomoneda relacionada" class="form-select mb-0" id="gender" aria-label="Gender select example">
+                                <option selected>Gender</option>
+                                <option value="1">Female</option>
+                                <option value="2">Male</option>
+                            </select>
+                        </div-->
+                        <div>
+                            <li role="separator" class="dropdown-divider mt-4 mb-3 "></li>
+                        </div>
+                    <div>
+                        <button class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" type="submit">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="floppy-disk"  class="icon icon-xs me-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433.1 129.1l-83.9-83.9C342.3 38.32 327.1 32 316.1 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V163.9C448 152.9 441.7 137.7 433.1 129.1zM224 416c-35.34 0-64-28.66-64-64s28.66-64 64-64s64 28.66 64 64S259.3 416 224 416zM320 208C320 216.8 312.8 224 304 224h-224C71.16 224 64 216.8 64 208v-96C64 103.2 71.16 96 80 96h224C312.8 96 320 103.2 320 112V208z"></path></svg>
+                            Publicar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+

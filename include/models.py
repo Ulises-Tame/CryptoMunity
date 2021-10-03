@@ -23,4 +23,6 @@ class Articulos(db.Model):
     fechaDePublicacion= db.Column(db.Date, nullable=True)
     noEdicion = db.Column(db.Integer,nullable=False)
     estatusArticulo = db.Column(db.Integer, nullable=False)
+    fechaEdicion = db.Column(db.Date, nullable=True)
+    cryptoRelacionada = db.Column(db.String(20), nullable=False)
     idUsuario = db.Column(db.Integer, nullable=False)
