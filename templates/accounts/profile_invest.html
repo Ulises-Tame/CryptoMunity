@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/base_invest.html" %}
 
 {% block title %} Perfil {% endblock %} 
 
@@ -7,8 +7,6 @@
 
 {% block content %}
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">    
-    </div>
     <div class="perfil">
         <div class="col-12 col-xl-4-profile">
             <div class="perfil">
@@ -26,12 +24,12 @@
                             <p class="text-gray mb-4">
                                 {{ current_user.correoUsuario }}
                             </p>
-                            <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
+                            <!--a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
                                 <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                                 Página principal
-                            </a>
+                            </a-->
                         </div>
                     </div>
                 </div>
@@ -41,29 +39,18 @@
                         {% for articulos in articulos_user %}
                         <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom"> 
                             <div>
-                                <h3 class="h6 mb-1">{{ articulos.nombreArticulo }}</h3>
+                                <h3 class="h6 mb-1">{{ articulos.nombreArticulo }} - {{articulos.fechaDePublicacion.strftime("%b %d %Y ")}} - <a href="articulos/edit/{{ articulos.id}}" class="text-primary d-inline-flex align-items-center me-3">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square" class="icon icon-xxs me-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M383.1 448H63.1V128h156.1l64-64H63.1C28.65 64 0 92.65 0 128v320c0 35.35 28.65 64 63.1 64h319.1c35.34 0 63.1-28.65 63.1-64l-.0039-220.1l-63.1 63.99V448zM497.9 42.19l-28.13-28.14c-18.75-18.75-49.14-18.75-67.88 0l-38.62 38.63l96.01 96.01l38.62-38.63C516.7 91.33 516.7 60.94 497.9 42.19zM147.3 274.4l-19.04 95.22c-1.678 8.396 5.725 15.8 14.12 14.12l95.23-19.04c4.646-.9297 8.912-3.213 12.26-6.562l186.8-186.8l-96.01-96.01L153.8 262.2C150.5 265.5 148.2 269.8 147.3 274.4z"></path></svg>
+                                    Editar
+                                </a> 
+                                </h3>
                                 <p class="small pe-4">{{ articulos.articulo}}</p>
                             </div>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-                <form method="POST" action="" class="mt-4">
-                    <div class="form-group mb-4">
-                        <label for="textarea">Publicar Artículo</label>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" required>             
-                        </div>
-                        <div class="input-group">
-                            <textarea class="form-control" placeholder="Ingresa algo para publicar..." name="publicación" maxlength="400" id="textarea" rows="4"></textarea>                      
-                        </div>
-                    <div>
-                        <button class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" type="submit">
-                            <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path></svg>
-                            Publicar
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -72,3 +59,9 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}{% endblock javascripts %}
+class="icon icon-xxs me-2"
+ 
+
+
+
+                            
