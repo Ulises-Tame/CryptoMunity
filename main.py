@@ -26,6 +26,14 @@ def profile():
     else:
         return redirect(url_for('main.profile_investigador'))
 
+@main.route('/art-trader')
+@login_required
+def articulos_trader():
+    if current_user.tipoUsuario == 'Trader':
+        return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile')
+    else:
+        return redirect(url_for('main.profile_trader'))
+
 @main.route('/profile_investigador')
 @login_required
 def profile_investigador():
