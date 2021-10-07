@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, json, redirect, url_for
 from flask_login import login_required, current_user
 from include.models import Articulos
 from run import db
-from include.DAO import get_articulos_user_by_id, update_articulo, get_articulo_by_id
+from include.DAO import get_articulos_user_by_id, update_articulo, get_articulo_by_id, get_articulos_by_crypto
 
 main = Blueprint('main', __name__, url_prefix= '')
 
@@ -26,13 +26,18 @@ def profile():
     else:
         return redirect(url_for('main.profile_investigador'))
 
-@main.route('/art-trader')
+@main.route('/art-trader/<string:crypto>')
 @login_required
-def articulos_trader():
-    if current_user.tipoUsuario == 'Trader':
-        return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile')
-    else:
-        return redirect(url_for('main.profile_trader'))
+def articulos_trader(crypto):
+    user = check_user()
+    if  user:
+        pass
+    else: 
+        return redirect(url_for('main.profile'))
+    print(crypto)
+    articulos = get_articulos_by_crypto(crypto)
+    print(articulos)
+    return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos)
 
 @main.route('/profile_investigador')
 @login_required
