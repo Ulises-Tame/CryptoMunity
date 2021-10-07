@@ -22,3 +22,7 @@ def get_articulo_by_id(id_articulo):
     articulo = Articulos.query.filter(Articulos.id==id_articulo).first()
     return articulo
 
+def get_articulos_by_crypto(crypto):
+    articulos= Articulos.query.filter(Articulos.cryptoRelacionada==crypto).all()
+    return articulos
+
