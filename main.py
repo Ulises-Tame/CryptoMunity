@@ -34,9 +34,7 @@ def articulos_trader(crypto):
         pass
     else: 
         return redirect(url_for('main.profile'))
-    print(crypto)
     articulos = get_articulos_by_crypto(crypto)
-    print(articulos)
     return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos)
 
 @main.route('/profile_investigador')
