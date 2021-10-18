@@ -11,7 +11,7 @@ get_articulos_by_crypto,
 insert_articulo,
 get_crypto
 ) 
-from include.DAO_EVENTOS import (insert_evento_login, 
+from include.DAO_EVENTOS import (insert_evento_perfil, 
 insert_evento_articulo, 
 insert_evento_editararticulo, 
 insert_evento_nuevoarticulo,
@@ -33,10 +33,10 @@ def index():
 @login_required
 def profile():
     if current_user.tipoUsuario == 'Trader':
-        insert_evento_login()
+        insert_evento_perfil()
         return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile')
     else:
-        insert_evento_login()
+        insert_evento_perfil()
         return redirect(url_for('main.profile_investigador'))
 
 @main.route('/art-trader/<string:crypto>')

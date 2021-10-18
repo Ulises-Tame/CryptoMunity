@@ -171,19 +171,19 @@
     
     <div class="row">
 
-        <div class="col-12 col-sm-6 col-xl-12 mb-4">
-            <div class="col-12 col-xl-12">
-                <div class="row">
+        <!--div class="col-12 col-sm-6 col-xl-12 mb-4">
+            <div class="col-12 col-xl-12"-->
+                <!--div class="row"-->
                     <div class="col-12 mb-4">
                         <div class="card border-0 shadow">
-                            <div class="card-header">
+                            <!--div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <h2 class="fs-5 fw-bold mb-0">Artículos relacionados</h2>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="table-responsive">
+                            </div-->
+                            <!--div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                     <tr>
@@ -194,23 +194,25 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        {% for articulos in articulos_crypto %}
                                     <tr>
                                         <th class="text-gray-900" scope="row">
-                                            BTC
+                                            {{ articulos.nombreArticulo }}
                                         </th>
                                         <td class="fw-bolder text-gray-500">
-                                            La historia de Bitcoin y su evolución.
+                                            {{ articulos.articulo}}
                                         </td>
                                         <td class="fw-bolder text-gray-500">
-                                            Daniel Torres
+                                            {{ articulos.autorArticulo }}
                                         </td>
                                         <td class="fw-bolder text-gray-500">
-                                            Enero, 2021
+                                            {{articulos.fechaDePublicacion.strftime("%b %d %Y ")}}
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
-                            </div>
+                            </div-->
     <div class="card card-body border-0 shadow mb-4 mb-xl-0">
         <h2 class="h5 mb-4">Artículos Relacionados</h2>
             <ul class="list-group list-group-flush">

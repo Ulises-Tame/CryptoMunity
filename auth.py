@@ -12,7 +12,8 @@ insert_investigador
 from include.DAO_EVENTOS import (insert_error_login, 
 insert_error_registrar, 
 insert_evento_registro,
-insert_evento_logout
+insert_evento_logout,
+insert_evento_login
 ) 
 
 
@@ -39,9 +40,11 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    if user.tipoUsuario=='Trader': 
+    if user.tipoUsuario=='Trader':
+        insert_evento_login()
         return redirect(url_for('main.profile'))
     else:
+        insert_evento_login()
         return redirect(url_for('main.profile_investigador'))
 
 @auth.route('/signup')

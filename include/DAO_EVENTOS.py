@@ -2,6 +2,12 @@ from include.models import User, Articulos, Eventos
 from run import db
 from flask_login import current_user
 
+
+def insert_evento_perfil():
+    new_evento = Eventos(nombre_evento = "evento_perfil",idUsuario=current_user.id,tipoUsuario=current_user.tipoUsuario)
+    db.session.add(new_evento)
+    db.session.commit()
+
 def insert_evento_login():
     new_evento = Eventos(nombre_evento = "evento_login",idUsuario=current_user.id,tipoUsuario=current_user.tipoUsuario)
     db.session.add(new_evento)
