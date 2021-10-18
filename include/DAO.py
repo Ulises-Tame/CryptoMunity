@@ -1,7 +1,17 @@
-from include.models import User, Articulos
+from include.models import User, Articulos, Eventos
 from run import db
+from flask_login import current_user
 
 
+def insert_trader(user):
+    db.session.add(user)
+    db.session.commit()
+    db.session.close()
+
+def insert_investigador(user):
+    db.session.add(user)
+    db.session.commit()
+    db.session.close()
 
 def get_user_by_email(correo):
     user = User.query.filter_by(correoUsuario=correo).first()
@@ -26,3 +36,6 @@ def get_articulos_by_crypto(crypto):
     articulos= Articulos.query.filter(Articulos.cryptoRelacionada==crypto).all()
     return articulos
 
+def insert_articulo(articulo):
+    db.session.add(articulo)
+    db.session.commit()
