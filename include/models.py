@@ -34,6 +34,8 @@ class Criptomonedas(db.Model):
     nombreCriptomoneda = db.Column(db.String(100), nullable=False)
     link = db.Column(db.String(100), nullable=False)
     fotoCrypto = db.Column(db.String(100), nullable=False)
+    descripcion = db.Column(db.String(200), nullable=False)
+
 
 
 class Eventos(db.Model):
