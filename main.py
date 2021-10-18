@@ -8,7 +8,8 @@ from include.DAO import ( get_articulos_user_by_id,
 update_articulo, 
 get_articulo_by_id, 
 get_articulos_by_crypto,
-insert_articulo
+insert_articulo,
+get_crypto
 ) 
 from include.DAO_EVENTOS import (insert_evento_login, 
 insert_evento_articulo, 
@@ -46,8 +47,9 @@ def articulos_trader(crypto):
     else: 
         return redirect(url_for('main.profile'))
     articulos = get_articulos_by_crypto(crypto)
+    criptomoneda = get_crypto(crypto)
     insert_evento_crypto()
-    return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos)
+    return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos, crypto=criptomoneda)
 
 @main.route('/profile_investigador')
 @login_required

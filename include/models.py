@@ -27,6 +27,15 @@ class Articulos(db.Model):
     cryptoRelacionada = db.Column(db.String(20), nullable=False)
     idUsuario = db.Column(db.Integer, nullable=False)
 
+
+class Criptomonedas(db.Model):
+    __tablename__ = 'Criptomonedas'
+    id = db.Column('idCriptomonedas',db.Integer, primary_key=True)
+    nombreCriptomoneda = db.Column(db.String(100), nullable=False)
+    link = db.Column(db.String(100), nullable=False)
+    fotoCrypto = db.Column(db.String(100), nullable=False)
+
+
 class Eventos(db.Model):
     __tablename__ = 'Eventos'
     id = db.Column('IdEventos',db.Integer, primary_key=True)

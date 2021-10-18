@@ -1,4 +1,4 @@
-from include.models import User, Articulos, Eventos
+from include.models import User, Articulos, Eventos, Criptomonedas
 from run import db
 from flask_login import current_user
 
@@ -35,6 +35,10 @@ def get_articulo_by_id(id_articulo):
 def get_articulos_by_crypto(crypto):
     articulos= Articulos.query.filter(Articulos.cryptoRelacionada==crypto).all()
     return articulos
+
+def get_crypto(crypto):
+    crypto= Criptomonedas.query.filter(Criptomonedas.link==crypto).all()
+    return  crypto
 
 def insert_articulo(articulo):
     db.session.add(articulo)
