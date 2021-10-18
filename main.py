@@ -39,6 +39,16 @@ def profile():
         insert_evento_login()
         return redirect(url_for('main.profile_investigador'))
 
+@main.route('/cryptos')
+@login_required
+def cryptomonedas():
+    if current_user.tipoUsuario == 'Trader':
+        insert_evento_login()
+        return render_template('accounts/cryptos.html', name=current_user.nombreUsuario, segment='profile')
+    else:
+        insert_evento_login()
+        return redirect(url_for('main.profile_investigador'))        
+
 @main.route('/art-trader/<string:crypto>')
 @login_required
 def articulos_trader(crypto):

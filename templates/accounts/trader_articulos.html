@@ -41,6 +41,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <h2 class="fs-5 fw-bold mb-0">Conoce a {{nombrecrypto}}</h2>
+                                            <span class="badge bg-success">Good crypto</span>
                                         </div>
                                     </div>
                                 </div>
@@ -49,15 +50,7 @@
                                     <div class="card border-0 shadow">
                                         <div class="card-body">
                                             <div class="row d-block d-xl-flex align-items-center">
-                                                <div>
-                                                    <small class="align-items-center">
-                                                        <span class="fa fa-star" style="cursor: pointer;" onclick="calificar(this)" id="star-2"></span>
-                                                        <span class="fa fa-star" style="cursor: pointer;" onclick="calificar(this)" id="star-3"></span>
-                                                        <span class="fa fa-star" style="cursor: pointer;" onclick="calificar(this)" id="star-4"></span>
-                                                        <span class="fa fa-star" style="cursor: pointer;" onclick="calificar(this)" id="star-1"></span>
-                                                        <span class="fa fa-star" style="cursor: pointer;" onclick="calificar(this)" id="star-5"></span>
-                                                    </small> 
-                                                </div>
+                                                <p>Este es la intriduccion</p>
                                             </div>
                                         </div>
                                     </div>                               
@@ -73,23 +66,20 @@
     
     <div class="row">
         <div class="col-12 col-sm-6 col-xl-12 mb-4">
-            <div class="col-12 col-xl-12">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="card border-0 shadow">
-                    <div class="card card-body border-0 shadow mb-4 mb-xl-0">
-                        <h2 class="h5 mb-4">Artículos Relacionados</h2>
-                            <ul class="list-group list-group-flush">
-                                {% for articulos in articulos_crypto %}
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom"> 
-                                    <div>
-                                        <h3 class="h6 mb-1">{{ articulos.nombreArticulo }} - Autor: {{ articulos.autorArticulo }} - {{articulos.fechaDePublicacion.strftime("%b %d %Y ")}} 
-                                        </h3>
-                                        <p class="small pe-4">{{ articulos.articulo}}</p>
-                                        </div>
-                                </li>
-                                        {% endfor %}
-                            </ul>
+            <div class="card-body border-0 mb-4 mb-xl-0">
+                <h2 class="h5 mb-4">Artículos Relacionados</h2>
+                    <ul class="list-group list-group-flush">
+                        {% for articulos in articulos_crypto %}
+                        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom"> 
+                            <div>
+                                <a class="h6 mb-1">{{ articulos.nombreArticulo }} - Autor: {{ articulos.autorArticulo }} - {{articulos.fechaDePublicacion.strftime("%b %d %Y ")}} 
+                                </a>
+                                <p class="small pe-4">{{ articulos.articulo}}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+            </div>                
         </div>
     </div>
 </div>
