@@ -38,7 +38,7 @@ def get_articulos_by_crypto(crypto):
 
 def get_crypto(crypto):
     crypto= Criptomonedas.query.filter(Criptomonedas.link==crypto).all()
-    return  crypto
+    return crypto
 
 def insert_articulo(articulo):
     db.session.add(articulo)
