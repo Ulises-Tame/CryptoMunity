@@ -4,15 +4,24 @@ from flask import Blueprint, render_template, request, json, redirect, url_for
 from flask_login import login_required, current_user
 from include.models import Articulos
 from run import db
-from include.DAO import get_articulos_user_by_id, update_articulo, get_articulo_by_id, get_articulos_by_crypto
+from include.DAO import ( get_articulos_user_by_id, 
+update_articulo, 
+get_articulo_by_id, 
+get_articulos_by_crypto,
+insert_articulo
+) 
+from include.DAO_EVENTOS import (insert_evento_login, 
+insert_evento_articulo, 
+insert_evento_editararticulo, 
+insert_evento_nuevoarticulo,
+insert_vista_editararticulo,
+insert_evento_crypto
+) 
+from sentiment import sentiment_analysis, get_authenticate_client
+from include.command import check_sentimiento, check_user
 
 main = Blueprint('main', __name__, url_prefix= '')
 
-def check_user():
-    if current_user.tipoUsuario == 'Trader':
-        return True
-    else:
-        return None
 
 @main.route('/')
 def index():
@@ -22,8 +31,10 @@ def index():
 @login_required
 def profile():
     if current_user.tipoUsuario == 'Trader':
+        insert_evento_login()
         return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile')
     else:
+        insert_evento_login()
         return redirect(url_for('main.profile_investigador'))
 
 @main.route('/art-trader/<string:crypto>')
@@ -35,6 +46,7 @@ def articulos_trader(crypto):
     else: 
         return redirect(url_for('main.profile'))
     articulos = get_articulos_by_crypto(crypto)
+    insert_evento_crypto()
     return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos)
 
 @main.route('/profile_investigador')
@@ -55,6 +67,7 @@ def articulos():
     user = check_user()
     if user:
         return redirect(url_for('main.profile'))
+    insert_evento_articulo()
     return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos')
 
 @main.route('/articulos', methods=['POST'])
@@ -66,11 +79,14 @@ def articulos_post():
     publicación = request.form['publicación']
     titulo = request.form['titulo']
     crypto = request.form['crypto']
-    print(crypto)
-    nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,cryptoRelacionada=crypto,idUsuario=current_user.id)
-    db.session.add(nuevo_articulo)
-    db.session.commit()
- 
+    cliente = get_authenticate_client()
+    sentimiento = sentiment_analysis(cliente,publicación)
+    valoración =  check_sentimiento(sentimiento)
+    print(sentimiento)
+
+    nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,cryptoRelacionada=crypto,idUsuario=current_user.id,sentimiento= valoración)
+    insert_articulo(nuevo_articulo)
+    insert_evento_nuevoarticulo()
     return render_template('accounts/agregar_articulo.html', name=current_user.nombreUsuario, segment='articulos')
 
 
@@ -81,6 +97,7 @@ def articulos_edit(id):
     if user:
         return redirect(url_for('main.profile'))
     articulo = get_articulo_by_id(id)
+    insert_vista_editararticulo
     return render_template('accounts/editar.html', segment='articulos', articulo=articulo)
 
 @main.route('/articulos/edit/<int:id>', methods=['POST'])
@@ -92,4 +109,5 @@ def articulos_edit_post(id):
     publicación = request.form['publicación']
     titulo = request.form['titulo']
     update_articulo(id,titulo,publicación)
+    insert_evento_editararticulo()
     return redirect(url_for('main.profile'))

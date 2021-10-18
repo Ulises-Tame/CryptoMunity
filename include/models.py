@@ -26,3 +26,13 @@ class Articulos(db.Model):
     fechaEdicion = db.Column(db.Date, nullable=True)
     cryptoRelacionada = db.Column(db.String(20), nullable=False)
     idUsuario = db.Column(db.Integer, nullable=False)
+
+class Eventos(db.Model):
+    __tablename__ = 'Eventos'
+    id = db.Column('IdEventos',db.Integer, primary_key=True)
+    nombre_evento = db.Column(db.String(80), nullable=False)
+    idUsuario = db.Column(db.Integer, nullable=False)
+    tipoUsuario = db.Column(db.String(50), nullable=False)
+    timestamp = db.Column(db.Date, nullable=False)
+
+    
