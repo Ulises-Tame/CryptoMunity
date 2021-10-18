@@ -19,7 +19,7 @@ insert_vista_editararticulo,
 insert_evento_crypto
 ) 
 from sentiment import sentiment_analysis, get_authenticate_client
-from include.command import check_sentimiento, check_user
+from include.command import check_sentimiento, check_user, promedio
 import json
 
 main = Blueprint('main', __name__, url_prefix= '')
@@ -56,14 +56,19 @@ def articulos_trader(crypto):
     if  user:
         pass
     else: 
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('main.profile'))  
     articulos = get_articulos_by_crypto(crypto)
+    botones = promedio(articulos)
     criptomoneda = get_crypto(crypto)
     for crypto_ in criptomoneda:
         nombrecrypto = crypto_.nombreCriptomoneda
         foto = crypto_.fotoCrypto
+        descripcion = crypto_.descripcion
+    for boton in botones:
+        clase = boton.clase
+        rank = boton.rank
     insert_evento_crypto()
-    return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos, nombrecrypto=nombrecrypto, fotocrypto=foto)
+    return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos, nombrecrypto=nombrecrypto, fotocrypto=foto, descripcion=descripcion, clase=clase, rank=rank)
 
 @main.route('/profile_investigador')
 @login_required

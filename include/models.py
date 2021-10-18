@@ -26,6 +26,7 @@ class Articulos(db.Model):
     fechaEdicion = db.Column(db.Date, nullable=True)
     cryptoRelacionada = db.Column(db.String(20), nullable=False)
     idUsuario = db.Column(db.Integer, nullable=False)
+    sentimiento = db.Column(db.Integer, nullable=False)
 
 
 class Criptomonedas(db.Model):
@@ -36,6 +37,13 @@ class Criptomonedas(db.Model):
     fotoCrypto = db.Column(db.String(100), nullable=False)
     descripcion = db.Column(db.String(200), nullable=False)
 
+
+class Botones(db.Model):
+    __tablename__ = 'Botones'
+    id = db.Column('idBotones',db.Integer, primary_key=True)
+    tipo = db.Column(db.String(80), nullable=False)
+    clase = db.Column(db.String(80), nullable=False)
+    rank = db.Column(db.String(80), nullable=False)
 
 
 class Eventos(db.Model):

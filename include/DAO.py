@@ -1,4 +1,4 @@
-from include.models import User, Articulos, Eventos, Criptomonedas
+from include.models import User, Articulos, Eventos, Criptomonedas, Botones
 from run import db
 from flask_login import current_user
 
@@ -43,3 +43,8 @@ def get_crypto(crypto):
 def insert_articulo(articulo):
     db.session.add(articulo)
     db.session.commit()
+
+
+def get_boton(tipo):
+    boton= Botones.query.filter(Botones.tipo==tipo).all()
+    return boton
