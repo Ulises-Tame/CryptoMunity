@@ -25,17 +25,19 @@ def promedio(valores):
         sentimiento = valor.sentimiento
         lista.append(sentimiento)
         print(sentimiento)
-        contador = sentimiento + contador
+        contador = sentimiento + contador    
     narticulos = lista.__len__()
+    #if contador == 0 or narticulos == 0 or contador == None or narticulos == None:
+    #   resultado = 0
+    #else:
     resultado = contador / narticulos
-
-
+    
 
     if resultado > 3:
         tipo = "success"
     elif resultado <3 and resultado >=2:
         tipo ="warning"
-    elif resultado >= 2:
+    elif resultado <= 2:
         tipo ="danger"
     boton = get_boton(tipo)
     return boton

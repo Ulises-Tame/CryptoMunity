@@ -34,7 +34,25 @@ def index():
 def profile():
     if current_user.tipoUsuario == 'Trader':
         insert_evento_login()
-        return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile')
+        btc = get_articulos_by_crypto("BTC")
+        eth = get_articulos_by_crypto("ETH")
+        sol = get_articulos_by_crypto("SOL")
+        botonBtc = promedio(btc)
+        botonEth = promedio(eth)    
+        botonSol = promedio(sol)
+        for boton in botonBtc:
+            claseBtc = boton.clase
+            rankBtc = boton.rank
+
+        for boton in botonEth:
+            claseEth = boton.clase
+            rankEth = boton.rank
+
+        for boton in botonSol:
+            claseSol = boton.clase
+            rankSol = boton.rank
+
+        return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile', claseBtc = claseBtc, rankBtc = rankBtc, claseEth = claseEth, rankEth = rankEth, claseSol = claseSol, rankSol = rankSol)
     else:
         insert_evento_login()
         return redirect(url_for('main.profile_investigador'))
