@@ -21,6 +21,7 @@ insert_evento_crypto
 from sentiment import sentiment_analysis, get_authenticate_client
 from include.command import check_sentimiento, check_user
 import json
+from voz import voz
 
 main = Blueprint('main', __name__, url_prefix= '')
 
@@ -117,3 +118,13 @@ def articulos_edit_post(id):
     update_articulo(id,titulo,publicación)
     insert_evento_editararticulo()
     return redirect(url_for('main.profile'))
+
+@main.route('/voz')
+@login_required
+def voz():
+    user = check_user()
+    if user:
+        return redirect(url_for('main.profile'))
+    texto = voz
+    print(texto)
+    return texto

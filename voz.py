@@ -1,7 +1,7 @@
 import azure.cognitiveservices.speech as speechsdk
 
 
-def from_mic():
+def voz():
 
     speech_config = speechsdk.SpeechConfig(subscription="be4302873f0e45fe9a1e2de23b29b3b2", region="southcentralus")
     speech_config.speech_recognition_language="es-MX"
@@ -10,6 +10,7 @@ def from_mic():
     
     print("Habla al microfono")
     result = speech_recognizer.recognize_once_async().get()
+    #return result.text
     print(result.text)
 
-from_mic()
+#voz()
