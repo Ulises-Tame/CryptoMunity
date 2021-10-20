@@ -26,7 +26,7 @@
                                     {% endif %}                                     
                                 </p> 
                             </div>
-                            <form method="post" action="" class="mt-4">
+                            <form method="post" action="" id="form" class="mt-4">
                                 
 
                                 <div class="form-group mb-4">
@@ -122,4 +122,24 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script >
+    const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-gray'
+            },
+            buttonsStyling: false
+        });
+        const form = document.getElementById('form');
+    form.addEventListener('submit', function () {
+            swalWithBootstrapButtons.fire({
+                icon: 'success',
+                title: 'Success alert',
+                text: '¡Cuenta creada!',
+                showConfirmButton: true,
+                timer: 1500
+            })
+        });
+</script>  
+{% endblock javascripts %}
