@@ -24,13 +24,13 @@ def sentiment_analysis(client, frase):
     ))
     return sentiment
     #print(overall)
-    #for idx, sentence in enumerate(response.sentences):
-     #   print("Sentence: {}".format(sentence.text))
-      #  print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-      #  print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
-        #    sentence.confidence_scores.positive,
-         #   sentence.confidence_scores.neutral,
-          #  sentence.confidence_scores.negative,
-        #))
-          
-#sentiment_analysis(client)
+    # for idx, sentence in enumerate(response.sentences):
+    #     print("Sentence: {}".format(sentence.text))
+    #     print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
+    #     print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+    #         sentence.confidence_scores.positive,
+    #         sentence.confidence_scores.neutral,
+    #         sentence.confidence_scores.negative,
+    #     ))
+
+#sentiment_analysis(client,frase)

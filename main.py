@@ -16,7 +16,9 @@ insert_evento_articulo,
 insert_evento_editararticulo, 
 insert_evento_nuevoarticulo,
 insert_vista_editararticulo,
-insert_evento_crypto
+insert_evento_crypto,
+insert_evento_perfil,
+insert_evento_cryptos
 ) 
 from sentiment import sentiment_analysis, get_authenticate_client
 from include.command import check_sentimiento, check_user, promedio
@@ -33,7 +35,7 @@ def index():
 @login_required
 def profile():
     if current_user.tipoUsuario == 'Trader':
-        insert_evento_login()
+        insert_evento_perfil()
         btc = get_articulos_by_crypto("BTC")
         eth = get_articulos_by_crypto("ETH")
         sol = get_articulos_by_crypto("SOL")
@@ -54,17 +56,16 @@ def profile():
 
         return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile', claseBtc = claseBtc, rankBtc = rankBtc, claseEth = claseEth, rankEth = rankEth, claseSol = claseSol, rankSol = rankSol)
     else:
-        insert_evento_login()
+        insert_evento_perfil()
         return redirect(url_for('main.profile_investigador'))
 
 @main.route('/cryptos')
 @login_required
 def cryptomonedas():
     if current_user.tipoUsuario == 'Trader':
-        insert_evento_login()
+        insert_evento_cryptos()
         return render_template('accounts/cryptos.html', name=current_user.nombreUsuario, segment='profile')
     else:
-        insert_evento_login()
         return redirect(url_for('main.profile_investigador'))        
 
 @main.route('/art-trader/<string:crypto>')
@@ -95,9 +96,8 @@ def profile_investigador():
     if user:
         return redirect(url_for('main.profile'))
     articulos_user = get_articulos_user_by_id(current_user.id)
-    for articulos in articulos_user:
-        print(articulos.fechaDePublicacion)
-
+    #for articulos in articulos_user:
+        #print(articulos.fechaDePublicacion)
     return render_template('accounts/profile_invest.html', nombre=current_user.nombreUsuario, segment='profile', articulos_user=articulos_user)
 
 @main.route('/articulos')
@@ -121,7 +121,7 @@ def articulos_post():
     cliente = get_authenticate_client()
     sentimiento = sentiment_analysis(cliente,publicación)
     valoración =  check_sentimiento(sentimiento)
-    print(sentimiento)
+    #print(sentimiento)
 
     nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,cryptoRelacionada=crypto,idUsuario=current_user.id,sentimiento= valoración)
     insert_articulo(nuevo_articulo)
@@ -147,6 +147,9 @@ def articulos_edit_post(id):
         return redirect(url_for('main.profile'))
     publicación = request.form['publicación']
     titulo = request.form['titulo']
-    update_articulo(id,titulo,publicación)
+    cliente = get_authenticate_client()
+    sentimiento = sentiment_analysis(cliente,publicación)
+    valoración =  check_sentimiento(sentimiento)
+    update_articulo(id,titulo,publicación,valoración)
     insert_evento_editararticulo()
     return redirect(url_for('main.profile'))
