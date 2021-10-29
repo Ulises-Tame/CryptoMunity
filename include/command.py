@@ -11,7 +11,7 @@ def check_user():
 def check_sentimiento(sentimiento):
     if sentimiento == 'positive':
         valoración = 5
-    elif sentimiento == 'neutral':
+    elif sentimiento == 'neutral' or sentimiento == 'mixed':
         valoración = 2.5
     elif sentimiento == 'negative':
         valoración = 1
@@ -30,15 +30,17 @@ def promedio(valores):
     #if contador == 0 or narticulos == 0 or contador == None or narticulos == None:
     #   resultado = 0
     #else:
-    resultado = contador / narticulos
+    #print(contador)
+    resultado = int(contador / narticulos)
+    #print(resultado)
     
-
-    if resultado > 3:
+    if resultado >= 3:
         tipo = "success"
-    elif resultado <3 and resultado >=2:
+    elif resultado < 3 and resultado >=2:
         tipo ="warning"
-    elif resultado <= 2:
+    elif resultado < 2:
         tipo ="danger"
+    #print(tipo)
     boton = get_boton(tipo)
     return boton
 

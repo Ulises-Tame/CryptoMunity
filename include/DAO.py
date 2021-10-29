@@ -1,7 +1,7 @@
 from include.models import User, Articulos, Eventos, Criptomonedas, Botones
 from run import db
 from flask_login import current_user
-
+import datetime
 
 def insert_trader(user):
     db.session.add(user)
@@ -21,10 +21,12 @@ def get_articulos_user_by_id(id_user):
     articulos_user = Articulos.query.filter_by(idUsuario=id_user).all()
     return articulos_user
 
-def update_articulo(id_articulo,titulo,articulo_nuevo):
+def update_articulo(id_articulo,titulo,articulo_nuevo, sentimiento):
     articulo = Articulos.query.filter(Articulos.id==id_articulo).first()
     articulo.nombreArticulo= titulo
     articulo.articulo = articulo_nuevo
+    articulo.sentimiento = sentimiento
+    articulo.fechaEdicion = datetime.datetime.today()
     db.session.add(articulo)
     db.session.commit()
 

@@ -12,7 +12,8 @@ insert_investigador
 from include.DAO_EVENTOS import (insert_error_login, 
 insert_error_registrar, 
 insert_evento_registro,
-insert_evento_logout
+insert_evento_logout,
+insert_evento_login
 ) 
 
 
@@ -33,15 +34,17 @@ def login_post():
     # check if user actually exists
     # take the user supplied password, hash it, and compare it to the hashed password in database
     if not user or not check_password_hash(user.contrasena, contraseña):
-        insert_error_login()
+        insert_error_login('error','error')
         return render_template('accounts/login.html',
                                msg='Correo o Contraseña invalidos') # if user doesn't exist or password is wrong, reload the page
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    if user.tipoUsuario=='Trader': 
+    if user.tipoUsuario=='Trader':
+        insert_evento_login()
         return redirect(url_for('main.profile'))
     else:
+        insert_evento_login()
         return redirect(url_for('main.profile_investigador'))
 
 @auth.route('/signup')
@@ -56,20 +59,23 @@ def signup_post():
     telefono = request.form['telefono']
     contraseña = request.form['contraseña']
     correo = request.form['correo']
+    tipo = 'Trader'
     
     user = get_user_by_email(correo) # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again
-        insert_error_registrar()
+        insert_error_registrar('error','error')
         return render_template('accounts/register.html',
                                msg='Ese correo ya existe')
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Trader', estatusUsuario=1)
+    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario=tipo, estatusUsuario=1)
 
     # add the new user to the database
     insert_trader(new_user)
-    insert_evento_registro()
+    user = get_user_by_email(correo)
+    user_id = user.id
+    insert_evento_registro(user_id,tipo)
     return render_template('accounts/login.html', msg='¡Listo! Cuenta Creada' )
 
 @auth.route('/investigador')
@@ -84,20 +90,23 @@ def investigador_post():
     telefono = request.form['telefono']
     contraseña = request.form['contraseña']
     correo = request.form['correo']
+    tipo = 'Investigador'
     
     user = get_user_by_email(correo) # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
-        insert_error_registrar()
+        insert_error_registrar('error','error')
         return render_template('accounts/register_invest.html',
                                msg='Ese correo ya existe')
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario='Investigador', estatusUsuario=1)
+    new_user = User(correoUsuario=correo, nombreUsuario=nombre,apellidoUsuario=apellido,telefonoUsuario=telefono, contrasena=generate_password_hash(contraseña, method='sha256'), tipoUsuario=tipo, estatusUsuario=1)
 
     # add the new user to the database
     insert_investigador(new_user)
-    insert_evento_registro()   
+    user = get_user_by_email(correo)
+    user_id = user.id
+    insert_evento_registro(user_id,tipo)  
     return render_template('accounts/login.html', msg='¡Listo! Cuenta Creada' )
 
 @auth.route('/logout')

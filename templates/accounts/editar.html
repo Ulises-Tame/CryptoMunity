@@ -1,6 +1,6 @@
 {% extends "layouts/base_invest.html" %}
 
-{% block title %} Perfil {% endblock %} 
+{% block title %}{% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -26,13 +26,16 @@
                                 <select class="form-select mb-0" name="crypto" id="crypto" aria-label="Cryptomoneda">
                                     <option value="BTC">BTC</option>
                                     <option value="ETH">ETH</option>
+                                    <option value="SOL">SOL</option>
+                                    <option value="DOGE">DOGE</option>
                                     <option value="ADA">ADA</option>
+                                    <option value="CAKE">CAKE</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Ingresa algo para publicar..." name="publicación" maxlength="400" id="textarea" rows="4">{{articulo.articulo}}</textarea>                      
+                            <textarea class="form-control" placeholder="Ingresa algo para publicar..." name="publicación"  id="textarea" rows="4">{{articulo.articulo}}</textarea>                      
                         </div>
                         <!--div class="col-md-6 mb-3">
                             <select aria-placeholder="Selecciona la cryptomoneda relacionada" class="form-select mb-0" id="gender" aria-label="Gender select example">
@@ -58,5 +61,25 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script >
+    const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-gray'
+            },
+            buttonsStyling: false
+        });
+        const form = document.getElementById('form');
+    form.addEventListener('submit', function () {
+            swalWithBootstrapButtons.fire({
+                icon: 'success',
+                title: 'Success alert',
+                text: 'Artículo Guardado exitosamente !',
+                showConfirmButton: true,
+                timer: 1500
+            })
+        });
+</script>
+{% endblock javascripts %}
 
