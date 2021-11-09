@@ -12,4 +12,4 @@ def from_mic():
     result = speech_recognizer.recognize_once_async().get()
     print(result.text)
 
-from_mic()
+#from_mic()
