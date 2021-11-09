@@ -1,6 +1,6 @@
 # main.py
 
-from flask import Blueprint, render_template, request, json, redirect, url_for
+from flask import Blueprint, render_template, request, json, redirect, url_for, jsonify
 from flask_login import login_required, current_user
 from include.models import Articulos
 from run import db
@@ -9,7 +9,8 @@ update_articulo,
 get_articulo_by_id, 
 get_articulos_by_crypto,
 insert_articulo,
-get_crypto
+get_crypto,
+getCryptoByName
 ) 
 from include.DAO_EVENTOS import (insert_evento_login, 
 insert_evento_articulo, 
@@ -30,6 +31,17 @@ main = Blueprint('main', __name__, url_prefix= '')
 @main.route('/')
 def index():
     return render_template('accounts/login.html')
+
+
+@main.route('/api', methods=["GET"])
+def apiConsulta():
+    nombreCrypto = request.args.get("cripto")
+    crypto = getCryptoByName(nombreCrypto)
+    print(crypto.descripcion)
+    diccionario = {"descripcion": crypto.descripcion,
+                    "link": crypto.link,
+    }
+    return jsonify(diccionario)
 
 @main.route('/profile')
 @login_required

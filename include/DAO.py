@@ -42,6 +42,12 @@ def get_crypto(crypto):
     crypto= Criptomonedas.query.filter(Criptomonedas.link==crypto).all()
     return crypto
 
+
+def getCryptoByName(crypto):
+    crypto= Criptomonedas.query.filter(Criptomonedas.nombreCriptomoneda==crypto).first()
+    return crypto
+
+
 def insert_articulo(articulo):
     db.session.add(articulo)
     db.session.commit()
