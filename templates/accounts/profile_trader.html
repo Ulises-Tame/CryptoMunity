@@ -32,10 +32,10 @@
             </div>
         </div>
     </div>
-<!--Dashboard-->
+    <!--Dashboard-->
     <div class="col-12 mb-4">
         <div class="card border-0 shadow">
-                <!--Ranking Cryptos-->
+    <!--Ranking Cryptos-->
     <div class="row">
         <div class="col-12 col-xl-12">
             <div class="row">
@@ -68,29 +68,61 @@
                                     </td-->
                                     <td class="fw-bolder text-gray-500" id="btc-price"> 
                                     </td>
-                                    <td class="fw-bolder text-gray-500">
-                                        <div class="d-flex">
-                                            <span class="{{claseBtc}}">{{rankBtc}}</span>
+                                    <!--DIV RANK BTC - IMG QUESTION MARK TOOTLIP-->
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <h6>  
+                                                        <span class="{{claseBtc}}">{{rankBtc}}</span>
+                                                    </h6>
+                                                </div>    
+                                                <div class="col-2">
+                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                                        <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
+                                                    </a>
+                                                </div>   
+                                            </div>
                                         </div>
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th class="text-gray-900" scope="row">
                                         Ethereum
                                     </th>
-                                    <td class="fw-bolder text-gray-500"  id="crypto-price">
-                                    </td>
-                                    <td class="fw-bolder text-gray-500">
-                                        <div class="d-flex">
-                                            <span class="{{claseEth}}">{{rankEth}}</span>
+                                    <td>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <span class="fw-bolder text-gray-500"  id="crypto-price"></span>
+                                                </div>    
+                                                <div class="col-2">
+                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
+                                                    </a>
+                                                </div>   
+                                            </div>
                                         </div>
                                     </td>
-                                    <!--td class="fw-bolder text-gray-500">
-                                        <div class="d-flex">
-                                            <svg class="icon icon-xs text-success me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                            14,27%
+
+
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <h6>     
+                                                        <span class="{{claseEth}}">{{rankEth}}</span>
+                                                    </h6>
+                                                </div>    
+                                                <div class="col-2">
+                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
+                                                    </a>
+                                                </div>   
+                                            </div>
                                         </div>
-                                    </td-->
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="text-gray-900" scope="row">
@@ -98,11 +130,23 @@
                                     </th>
                                     <td class="fw-bolder text-gray-500" id="sol-price">
                                     </td>
-                                    <td class="fw-bolder text-gray-500">
-                                        <div class="d-flex">
-                                            <span class="{{claseSol}}">{{rankSol}}</span>
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <h6>     
+                                                        <span class="{{claseSol}}">{{rankSol}}</span>
+                                                    </h6>
+                                                </div>    
+                                                <div class="col-2">
+                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
+                                                    </a>
+                                                </div>   
+                                            </div>
                                         </div>
                                     </td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -124,7 +168,11 @@
                 <div class="col-12 mb-4">
                     <div>
                         <div class="card">
-                            <img class="mx-auto" src="/static/assets/img/cryptos/BTC_Logo.svg" title='BTC' height="250" width="250">
+                            
+
+                            <a href="/art-trader/{{'BTC'}}">
+                            <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/BTC_Logo.svg" title='BTC' height="250" width="250">
+                            </a>
                             <div class="">
                                 <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'BTC'}}">Conoce a Bitcoin</a>
                                 <div class="card border-0 shadow">
@@ -142,7 +190,9 @@
                 <div class="col-12 mb-4">
                     <div>
                         <div class="card ">
-                            <img class="mx-auto" src="/static/assets/img/cryptos/ethereum-eth.svg" title='ETH' height="250" width="250">
+                            <a href="/art-trader/{{'ETH'}}">
+                                <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/ethereum-eth.svg" title='ETH' height="250" width="250">   
+                            </a>                         
                             <div class="">
                                 <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'ETH'}}">Conoce a Ethereum</a>
                                 <div class="card border-0 shadow">
@@ -160,7 +210,12 @@
                 <div class="col-12 mb-4">
                     <div>
                         <div class="card">
-                            <img class="mx-auto"  src="/static/assets/img/cryptos/solana-logo.svg" title='SOL' height="250" width="250">
+                            <a href="/art-trader/{{'SOL'}}">
+                                <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/solana-logo.svg" title='SOL' height="250" width="250">   
+                            </a>  
+
+
+                            
                             <div class="">
                                 <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'SOL'}}">Conoce a Solana</a>
                                 <div class="card border-0 shadow">
@@ -178,11 +233,17 @@
             </div>
         </div>
     </div>
-    <iframe src='https://webchat.botframework.com/embed/chatbot-cm-bot?s=TU_SECRETO_AQUÍ'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
 
     <!--fontawesom script cdn-->
     <script src="https://use.fontawesome.com/058028e14d.js"></script>
     <script src="/static/assets/js/cryptoprice.js"></script>
+    <!--Tooltip-->
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 
 
 {% endblock content %}
