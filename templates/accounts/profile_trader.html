@@ -163,18 +163,24 @@
                     <h2 class="fs-5 fw-bold mb-0">Aprende de Crypto</h2>
                 </div>
         </div>
+        
         <div class="row">
+            {% for crypto in cryptos %}
             <div class="col-12 col-sm-6 col-xl-4 mb-4">
                 <div class="col-12 mb-4">
                     <div>
                         <div class="card">
+<<<<<<< HEAD
                             
 
                             <a href="/art-trader/{{'BTC'}}">
                             <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/BTC_Logo.svg" title='BTC' height="250" width="250">
                             </a>
+=======
+                            <img class="mx-auto" src="{{ crypto.fotoCrypto }}" title='BTC' height="250" width="250">
+>>>>>>> 023b3e4c9b787f2a09a38cfc1d0582035a38461e
                             <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'BTC'}}">Conoce a Bitcoin</a>
+                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{ crypto.link }}">Conoce a {{ crypto.nombreCriptomoneda }}</a>
                                 <div class="card border-0 shadow">
                                     <div class="card-body">
                                         <!--span class="badge bg-success">Good crypto</span-->
@@ -185,7 +191,9 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
+<<<<<<< HEAD
             <div class="col-12 col-sm-6 col-xl-4 mb-4">
                 <div class="col-12 mb-4">
                     <div>
@@ -231,6 +239,8 @@
                     <a href="/cryptos" class="btn btn-sm btn-primary">Ver todas</a>
                 </div>
             </div>
+=======
+>>>>>>> 023b3e4c9b787f2a09a38cfc1d0582035a38461e
         </div>
     </div>
 

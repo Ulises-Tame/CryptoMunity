@@ -10,6 +10,7 @@ def from_mic():
     
     print("Habla al microfono")
     result = speech_recognizer.recognize_once_async().get()
-    print(result.text)
+    
+    return result.text
 
 #from_mic()
