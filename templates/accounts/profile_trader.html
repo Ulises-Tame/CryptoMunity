@@ -170,15 +170,9 @@
                 <div class="col-12 mb-4">
                     <div>
                         <div class="card">
-<<<<<<< HEAD
-                            
-
-                            <a href="/art-trader/{{'BTC'}}">
-                            <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/BTC_Logo.svg" title='BTC' height="250" width="250">
+                            <a href="/art-trader/{{ crypto.link }}">
+                            <img class="mx-auto row align-items-center" src="{{ crypto.fotoCrypto }}" title='BTC' height="250" width="250">
                             </a>
-=======
-                            <img class="mx-auto" src="{{ crypto.fotoCrypto }}" title='BTC' height="250" width="250">
->>>>>>> 023b3e4c9b787f2a09a38cfc1d0582035a38461e
                             <div class="">
                                 <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{ crypto.link }}">Conoce a {{ crypto.nombreCriptomoneda }}</a>
                                 <div class="card border-0 shadow">
@@ -193,54 +187,6 @@
             </div>
             {% endfor %}
 
-<<<<<<< HEAD
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="col-12 mb-4">
-                    <div>
-                        <div class="card ">
-                            <a href="/art-trader/{{'ETH'}}">
-                                <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/ethereum-eth.svg" title='ETH' height="250" width="250">   
-                            </a>                         
-                            <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'ETH'}}">Conoce a Ethereum</a>
-                                <div class="card border-0 shadow">
-                                    <div class="card-body">
-                                        <!--span class="badge bg-success">Good crypto</span-->
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="col-12 mb-4">
-                    <div>
-                        <div class="card">
-                            <a href="/art-trader/{{'SOL'}}">
-                                <img class="mx-auto row align-items-center" src="/static/assets/img/cryptos/solana-logo.svg" title='SOL' height="250" width="250">   
-                            </a>  
-
-
-                            
-                            <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'SOL'}}">Conoce a Solana</a>
-                                <div class="card border-0 shadow">
-                                    <div class="card-body">
-                                         <!--span class="badge bg-success">Good crypto</span-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-end">
-                    <a href="/cryptos" class="btn btn-sm btn-primary">Ver todas</a>
-                </div>
-            </div>
-=======
->>>>>>> 023b3e4c9b787f2a09a38cfc1d0582035a38461e
         </div>
     </div>
 

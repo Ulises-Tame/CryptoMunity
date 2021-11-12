@@ -124,6 +124,14 @@ def articulos():
     insert_evento_articulo()
     return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos')
 
+
+
+@main.route('/articuloscrypto')
+def leerArticulos():
+    return render_template('accounts/leerarticulos.html')
+
+
+
 @main.route('/articulos', methods=['POST'])
 @login_required
 def articulos_post():
