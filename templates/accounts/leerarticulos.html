@@ -12,13 +12,15 @@
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="card border-light shadow-sm components-section">
+                    <div class="profile-cover rounded-top" data-background="https://media.istockphoto.com/photos/server-room-data-center-backup-mining-hosting-mainframe-farm-and-picture-id1276747401?b=1&k=20&m=1276747401&s=170667a&w=0&h=F6dq9twlmBGhdzV0aoPVJ9BB2bB-no2jAaFnAGuOBvE="></div>
                     <div class="card-body">     
                         <div class="row mb-4 mb-lg-5">  
                             <div class="col-md-2">
                             </div>                                         
                             <div class="col-md-8">                      
-                                <h1 class="display-2">Display 2</h1>
-                                <p class="blockquote blockquote-footer mt-3 text-primary">Juan</p>
+                                <h1 class="display-2">{{articulo.nombreArticulo}}</h1>
+                                <p class="blockquote blockquote-footer mt-3 text-primary">Autor: {{articulo.autorArticulo}} / Fecha de publicación: 
+                                {{articulo.fechaDePublicacion.strftime("%b %d %Y ")}}</p>
                             </div>
                         </div>  
 
@@ -29,7 +31,8 @@
                                 <div class="mb-3">
                                 <!--span class="h6 font-weight-bold">Simple paragraph</span-->
                             </div>
-                            <p>Start your development with a Pixel Design System for Bootstrap 4. Themesberg makes beautiful products to help people with creative ideas succeed.Our company empowers millions of people.
+                            <p class="lead">
+                                {{articulo.articulo}}
                             </p>
                             </div>
                         </div>
