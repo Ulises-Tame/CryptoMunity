@@ -1,7 +1,7 @@
 <nav class="d-md-block bg-primary text-white collapse px-4  navbar-top navbar-expand navbar-dark pl-0 pr-2 pb-0">
   <div class="d-flex w-100" id="navbarSupportedContent">
     <!-- Navbar links -->
-    <ul class="navbar-nav d-flex w-50 ">
+    <ul class="navbar-nav d-flex w-50 align-items-center">
       <!--CryptoMunity-->
       <li class="nav-item">
         <a class="nav-link d-flex align-items-center" href="/profile">
@@ -12,14 +12,14 @@
         </a>
       </li>
       <!--MENU-->
-      <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
+      <!--li class="nav-item {% if 'settings' in segment %} active {% endif %}">
         <a href="{{ url_for('main.profile') }}" class="nav-link">
           <span class="sidebar-icon">
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="house" class="icon icon-xs me-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"></path></svg>
           </span>
           <span class="sidebar-text">Menú</span>
         </a>
-      </li> 
+      </li--> 
       <!--Cryptos-->
       <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
         <a href="{{ url_for('main.cryptomonedas') }}" class="nav-link">
@@ -85,12 +85,12 @@
           </div>
         </a>
         <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
-          <a class="dropdown-item d-flex align-items-center" href="{{ url_for('main.profile') }}">
+          <a class="dropdown-item d-flex align-items-center text-primary" href="{{ url_for('main.profile') }}">
             <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path></svg>
             My Profile
           </a>
           <div role="separator" class="dropdown-divider my-1"></div>
-          <a class="dropdown-item d-flex align-items-center" href="{{ url_for('auth.logout') }}">
+          <a class="dropdown-item d-flex align-items-center text-primary" href="{{ url_for('auth.logout') }}">
             <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>                
             Logout
           </a>
