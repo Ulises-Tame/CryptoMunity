@@ -129,7 +129,9 @@ def articulos():
 @main.route('/articuloscrypto/<int:id>')
 def leerArticulos(id):
     user = check_user()
-    if user:
+    if  user:
+        pass
+    else: 
         return redirect(url_for('main.profile'))
     articulo = get_articulo_by_id(id)
     return render_template('accounts/leerarticulos.html', segment='articulos', articulo=articulo)
