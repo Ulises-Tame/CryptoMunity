@@ -1,178 +1,56 @@
 {% extends "layouts/base_trader.html" %}
 
-{% block title %}{% endblock %} 
+{% block title %} Artículos {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-    <div class="">
+
+<div class="row">
+    <div class="col-12">
         <div class="row">
-            <div class="col-12">       
-        <nav class="d-md-block bg-primary text-white collapse px-4 navbar navbar-top navbar-expand navbar-dark pl-0 pr-2 pb-0">
-            <div class="container-fluid px-0">
-              <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
-                
-                <!-- Navbar links -->
-                <ul class="navbar-nav align-items-center">
-                  
-                  <li class="nav-item dropdown">
-                    <a class="nav-link pt-1 px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="media d-flex align-items-center">
-                        <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-3.jpg">
-                        <div class="media-body ml-2 text-dark align-items-center d-none d-lg-block">
-                          <span class="mb-0 font-small font-weight-bold">
-                            Current:user: test
-                          </span>
+            <div class="col-12 mb-4">
+                <div class="card border-light shadow-sm components-section">
+                    <div class="card-body">     
+                        <div class="row mb-4 mb-lg-5">                                           
+                            <div class="col-12 col-md-6">                      
+                                <h1 class="display-2">Display 2</h1>
+                            </div>
+                        </div>  
+
+                        <div class="row mb-4 mb-lg-5">
+                            <div class="col-md-2">
+                            </div>
+                                <div class="col-md-8">
+                                <div class="mb-3">
+                                <span class="h6 font-weight-bold">Simple paragraph</span>
+                                </div>
+                                <p>Start your development with a Pixel Design System for Bootstrap 4. Themesberg makes beautiful products to help people with creative ideas succeed.Our company empowers millions of people.
+                                </p>
+                            </div>
                         </div>
-                      </div>
-                    </a>
-                    <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">
-                      <a class="dropdown-item font-weight-bold" href="/settings.html"><span class="fas fa-cog"></span>Settings</a>
-                      <div role="separator" class="dropdown-divider"></div>
-                      <a class="dropdown-item font-weight-bold" href="/logout">
-                          <span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mt-6 mb-5">
+                                    <span class="h6">Blockquote</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <blockquote class="blockquote text-center">
+                                    Themesberg makes beautiful products to help people with creative ideas succeed. Our company empowers millions of people.
+                                    <footer class="blockquote-footer mt-3 text-primary">Zoltan Szőgyényi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
+                </div>
             </div>
-        </nav>
-
-      <div class="preloader bg-soft flex-column justify-content-center align-items-center show">
-        <img class="loader-element animate__animated animate__jackInTheBox hide" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/brand/light.svg" height="60" alt="Volt logo">
-      </div>
-
-      
-
-      <div class="row">
-          <div class="col-12 mb-4">
-              <div class="card border-light shadow-sm components-section">
-                  <div class="card-body">     
-                      <div class="row mb-4 mb-lg-5">                                           
-                          
-                          <div class="col-12 col-md-6">
-                              <h2 class="h5 mb-3">Display Headings</h2>
-                              
-                              <h1 class="display-2">Display 2</h1>
-                              
-                              
-                          </div>
-                      </div>
-                      
-                      
-                      
-                      <div class="row mb-4 mb-lg-5">
-    <div class="col-md-2">
+        </div>
     </div>
-    <div class="col-md-8">
-      <div class="mb-3">
-          <span class="h6 font-weight-bold">Simple paragraph</span>
-      </div>
-      <p>Start your development with a Pixel Design System for Bootstrap 4. Themesberg makes beautiful products to help people with creative ideas succeed.Our company empowers millions of people.
-      </p>
-    </div>
-
 </div>
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      <!-- Title  -->
-                      <div class="row">
-                          <div class="col-md-4">
-                              <div class="mt-6 mb-5">
-                                  <span class="h6">Blockquote</span>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- End of Title -->
-                      <div class="row">
-                          <div class="col-md-8">
-                              <blockquote class="blockquote text-center">
-                                  Themesberg makes beautiful products to help people with creative ideas succeed. Our company empowers millions of people.
-                              </blockquote>
-                          </div>
-                      </div>
-                      <!-- Title  -->
-                      
-                      <!-- End of Title -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="mb-3">
-                                  <span class="h6">Unordered</span>
-                              </div>
-                              <ul>
-                                  <li>Minutes of the last meeting</li>
-                                  <li>Do we need yet more meetings?</li>
-                                  <li>Any other business
-                                      <ul>
-                                          <li>Programming</li>
-                                          <li>Web Design</li>
-                                          <li>Database</li>
-                                      </ul>
-                                  </li>
-                                  <li>Something funny</li>
-                              </ul>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="mt-5 mb-3 mt-sm-0">
-                                  <span class="h6 font-weight-bold">Ordered</span>
-                              </div>
-                              <ol>
-                                  <li>Minutes of the last meeting</li>
-                                  <li>Do we need yet more meetings?</li>
-                                  <li>Any other business
-                                      <ol>
-                                          <li>Programming</li>
-                                          <li>Web Design</li>
-                                          <li>Database</li>
-                                      </ol>
-                                  </li>
-                                  <li>Something funny</li>
-                              </ol>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      
-    <footer class="footer section py-5">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                    <p class="mb-0 text-center text-xl-left">
-                        © <a class="text-primary font-weight-normal" href="https://themesberg.com" target="_blank">Themesberg</a>
-                        - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>
-                    </p>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <!-- List -->
-                    <ul class="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
-                        <li class="list-inline-item px-0 px-sm-2">
-                            <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-volt">Flask Volt Dashboard</a>
-                        </li>
-                    </ul>
-                    <!-- End List -->
-                </div>
-            </div>
-        </div>
-
-            </div>
-        </div>
-    </div>
-<!--fontawesom script cdn-->
-<script src="https://use.fontawesome.com/058028e14d.js"></script>
-<script src="/static/assets/js/cryptoprice.js"></script>
-
-    
-  
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->

@@ -52,10 +52,20 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th class="border-bottom col-4" scope="col">Nombre</th>
+                                    <th class="border-bottom col-4" scope="col">Criptomoneda 
+                                    </th>
                                     <!--th class="border-bottom" scope="col">Market Cap</th-->
-                                    <th class="border-bottom col-4" scope="col">Precio</th>
-                                    <th class="border-bottom col-4" scope="col">CryptoRank</th>
+                                    <th class="border-bottom col-4" scope="col">Precio                                                     
+                                        <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                            <svg width="25" height="25" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question" class="svg-inline--fa fa-question" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M204.3 32.01H96c-52.94 0-96 43.06-96 96c0 17.67 14.31 31.1 32 31.1s32-14.32 32-31.1c0-17.64 14.34-32 32-32h108.3C232.8 96.01 256 119.2 256 147.8c0 19.72-10.97 37.47-30.5 47.33L127.8 252.4C117.1 258.2 112 268.7 112 280v40c0 17.67 14.31 31.99 32 31.99s32-14.32 32-31.99V298.3L256 251.3c39.47-19.75 64-59.42 64-103.5C320 83.95 268.1 32.01 204.3 32.01zM144 400c-22.09 0-40 17.91-40 40s17.91 39.1 40 39.1s40-17.9 40-39.1S166.1 400 144 400z"></path></svg>                                        
+                                        </a>    
+                                    </th>
+                                    
+                                    <th class="border-bottom col-4" scope="col">CryptoRank                                                    
+                                        <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
+                                            <svg width="25" height="25" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question" class="svg-inline--fa fa-question" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M204.3 32.01H96c-52.94 0-96 43.06-96 96c0 17.67 14.31 31.1 32 31.1s32-14.32 32-31.1c0-17.64 14.34-32 32-32h108.3C232.8 96.01 256 119.2 256 147.8c0 19.72-10.97 37.47-30.5 47.33L127.8 252.4C117.1 258.2 112 268.7 112 280v40c0 17.67 14.31 31.99 32 31.99s32-14.32 32-31.99V298.3L256 251.3c39.47-19.75 64-59.42 64-103.5C320 83.95 268.1 32.01 204.3 32.01zM144 400c-22.09 0-40 17.91-40 40s17.91 39.1 40 39.1s40-17.9 40-39.1S166.1 400 144 400z"></path></svg>                                        
+                                        </a>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,16 +82,11 @@
                                     <td class="container fw-bolder text-gray-500 row align-items-center">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div>
                                                     <h6>  
                                                         <span class="{{claseBtc}}">{{rankBtc}}</span>
                                                     </h6>
                                                 </div>    
-                                                <div class="col-2">
-                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
-                                                        <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
-                                                    </a>
-                                                </div>   
                                             </div>
                                         </div>
                                     </td>
@@ -91,35 +96,17 @@
                                     <th class="text-gray-900" scope="row">
                                         Ethereum
                                     </th>
-                                    <td>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <span class="fw-bolder text-gray-500"  id="crypto-price"></span>
-                                                </div>    
-                                                <div class="col-2">
-                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
-                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
-                                                    </a>
-                                                </div>   
-                                            </div>
-                                        </div>
+                                    <td class="fw-bolder text-gray-500" id="crypto-price">
                                     </td>
-
 
                                     <td class="container fw-bolder text-gray-500 row align-items-center">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div>
                                                     <h6>     
                                                         <span class="{{claseEth}}">{{rankEth}}</span>
                                                     </h6>
                                                 </div>    
-                                                <div class="col-2">
-                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
-                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
-                                                    </a>
-                                                </div>   
                                             </div>
                                         </div>
                                     </td>
@@ -133,16 +120,11 @@
                                     <td class="container fw-bolder text-gray-500 row align-items-center">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div>
                                                     <h6>     
                                                         <span class="{{claseSol}}">{{rankSol}}</span>
                                                     </h6>
                                                 </div>    
-                                                <div class="col-2">
-                                                    <a href="" data-bs-toggle="tooltip" title="Este es el CryptoRank, es calculado mediante el análisis de artículos con la ayuda de inteligencia artificial.">   
-                                                    <img alt="question mark" width="45" height="30" src="https://cdn-icons-png.flaticon.com/128/4714/4714873.png">
-                                                    </a>
-                                                </div>   
                                             </div>
                                         </div>
                                     </td>

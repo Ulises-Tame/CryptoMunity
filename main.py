@@ -128,7 +128,7 @@ def articulos():
 
 @main.route('/articuloscrypto')
 def leerArticulos():
-    return render_template('accounts/leerarticulos.html')
+    return render_template('accounts/leerarticulos.html', segment='articulos')
 
 
 
