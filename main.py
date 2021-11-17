@@ -125,8 +125,9 @@ def articulos():
     user = check_user()
     if user:
         return redirect(url_for('main.profile'))
+    articulos = get_articulos_by_crypto('ETH')
     insert_evento_articulo()
-    return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos')
+    return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos', articulos_crypto= articulos)
 
 
 
