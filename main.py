@@ -32,8 +32,12 @@ main = Blueprint('main', __name__, url_prefix= '')
 
 @main.route('/')
 def index():
-    return render_template('accounts/login.html')
+    return render_template('accounts/landingpage.html')
 
+
+@main.route('/cryptomunitylan')
+def landing():
+    return render_template('accounts/landingpage.html', segment='profile')
 
 @main.route('/api', methods=["GET"])
 def apiConsulta():
