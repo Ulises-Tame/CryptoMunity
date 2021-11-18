@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, json, redirect, url_for, 
 from flask_login import login_required, current_user
 from include.models import Articulos
 from run import db
-from include.DAO import ( get_articulos_user_by_id, 
+from include.DAO import ( get_all_photos, get_articulos_user_by_id, 
 update_articulo, 
 get_articulo_by_id, 
 get_articulos_by_crypto,
@@ -125,9 +125,9 @@ def articulos():
     user = check_user()
     if user:
         return redirect(url_for('main.profile'))
-    articulos = get_articulos_by_crypto('ETH')
+    fotos = get_all_photos()
     insert_evento_articulo()
-    return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos', articulos_crypto= articulos)
+    return render_template('accounts/agregar_articulo.html', nombre=current_user.nombreUsuario, segment='articulos', fotos= fotos)
 
 
 

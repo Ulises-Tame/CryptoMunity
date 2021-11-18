@@ -1,4 +1,4 @@
-from include.models import User, Articulos, Eventos, Criptomonedas, Botones
+from include.models import User, Articulos, Eventos, Criptomonedas, Botones, FotoArticulos
 from run import db
 from flask_login import current_user
 import datetime
@@ -60,3 +60,7 @@ def get_boton(tipo):
 def get_all_cryptos():
     cryptos = Criptomonedas.query.all()
     return cryptos
+
+def get_all_photos():
+    fotos = FotoArticulos.query.all()
+    return fotos

@@ -54,4 +54,11 @@ class Eventos(db.Model):
     tipoUsuario = db.Column(db.String(50), nullable=False)
     timestamp = db.Column(db.Date, nullable=False)
 
+class FotoArticulos(db.Model):
+    __tablename__ = 'fotoArticulos'
+    id = db.Column('idfotoArticulos',db.Integer, primary_key=True)
+    fotoArticulos = db.Column(db.Text, nullable=False)
+    clasificacionFoto = db.Column(db.Text, nullable=False)
+    moneda = db.Column(db.Text, nullable=False)
+
     
