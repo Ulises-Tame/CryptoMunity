@@ -74,13 +74,13 @@
                     <div class="card border-0 shadow p-4 col-12 col-sm-6 col-xl-4 mb-4">
                             <div class="card-body p-0">
                                 <a href="/articuloscrypto/{{articulos.id}}">
-                                <img src="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGZpbmFuY2UlMjAzZCUyMHJlbmRlcnxlbnwwfDB8MHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" class="card border-0 shadow  mb-2 mb-lg-3" alt="themesberg marketplace">
+                                <img src="{{articulos.fotoArticulo}}" class="card border-0 shadow  mb-2 mb-lg-3" alt="themesberg marketplace">
                                 <h3 class="h5 mb-0">{{ articulos.nombreArticulo }}</h3>
                                 <div class="row">
                                     <h5 class="col fs-6 fw-normal mt-4">Autor: {{ articulos.autorArticulo }} - {{articulos.fechaDePublicacion.strftime("%b %d %Y ")}} </h5>
                                     <div class="col avatar-group">
-                                        <a href="#" class="avatar" data-bs-toggle="tooltip" data-original-title="Ryan Tompson" data-bs-original-title="Ryan Tompson" title="">
-                                            <img class="rounded" alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v141/img/team/profile-picture-1.jpg">
+                                        <a class="avatar" data-bs-toggle="tooltip" data-original-title="{{ articulos.autorArticulo }}" data-bs-original-title="{{ articulos.autorArticulo }}" title="">
+                                            <img class="rounded" alt="Image placeholder" src="/static/assets/img/investigador.png">
                                         </a>
                                     </div>
                                 </div>

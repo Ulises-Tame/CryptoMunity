@@ -7387,6 +7387,10 @@ textarea.form-control-lg {
 .border {
   border: 0.0625rem solid #E5E7EB !important; }
 
+.border-highlight {
+  border: 5px dashed red;   
+}
+
 .border-0 {
   border: 0 !important; }
 

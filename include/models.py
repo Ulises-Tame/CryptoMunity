@@ -27,6 +27,7 @@ class Articulos(db.Model):
     cryptoRelacionada = db.Column(db.String(20), nullable=False)
     idUsuario = db.Column(db.Integer, nullable=False)
     sentimiento = db.Column(db.Integer, nullable=False)
+    fotoArticulo = db.Column(db.String(220), nullable=False)
 
 
 class Criptomonedas(db.Model):

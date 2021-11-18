@@ -1,6 +1,5 @@
 from include.models import User, Articulos, Eventos, Criptomonedas, Botones, FotoArticulos
 from run import db
-from flask_login import current_user
 import datetime
 
 def insert_trader(user):
@@ -64,3 +63,11 @@ def get_all_cryptos():
 def get_all_photos():
     fotos = FotoArticulos.query.all()
     return fotos
+
+def get_photo_by_id(id):
+    foto = FotoArticulos.query.filter(FotoArticulos.id==id).first()
+
+
+def get_all_articulos():
+    articulos = Articulos.query.all()
+    return articulos
