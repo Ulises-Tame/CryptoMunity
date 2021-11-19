@@ -182,6 +182,7 @@ def articulos_edit(id):
     if user:
         return redirect(url_for('main.profile'))
     articulo = get_articulo_by_id(id)
+    print(articulo.cryptoRelacionada)
     insert_vista_editararticulo
     return render_template('accounts/editar.html', segment='articulos', articulo=articulo)
 
