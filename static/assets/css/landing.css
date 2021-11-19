@@ -49,6 +49,9 @@ button{
     line-height: 80px;
 }
 
+.p{ 
+    font-size: 20px; 
+}
 .side-bar{ 
     width: 50px; 
     height: 100vh;
@@ -90,7 +93,7 @@ button{
     align-items: center; 
     justify-content: space-around; 
     position: absolute; 
-    bottom: -70px;
+    bottom: -80px;
 } 
 
 
@@ -113,27 +116,28 @@ button{
 
 
 .bubbles img:nth-child(1){ 
-    animation-delay: 2s; 
-    width: 30px;
+    animation-delay: 3.8s; 
+    width: 42px;
 } 
 .bubbles img:nth-child(2){ 
     animation-delay: 1s; 
 } 
 .bubbles img:nth-child(3){ 
     animation-delay: 3s; 
-    width: 30px;
+    width: 54px;
 } 
 .bubbles img:nth-child(4){ 
     animation-delay: 4.5s; 
+    width: 60;
 } 
 .bubbles img:nth-child(5){ 
-    animation-delay: 3s; 
+    animation-delay: 1.5s; 
+    width: 50px;
 } 
 .bubbles img:nth-child(6){ 
     animation-delay: 6s; 
-    width: 25px;
 } 
 .bubbles img:nth-child(7){ 
-    animation-delay: 7s; 
+    animation-delay: 4s; 
     width: 35px;
 } 
