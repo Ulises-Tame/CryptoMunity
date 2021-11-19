@@ -24,3 +24,33 @@ wssol.onmessage = (event) => {
     console.log(event.data)
     cryptoPriceSol.innerText ='$'+parseFloat(cryptoSol.p) 
 }
+
+
+let wsdoge = new WebSocket('wss://stream.binance.com:9443/ws/dogeusdt@trade');
+let cryptoPriceDoge = document.getElementById('doge-price');
+
+wsdoge.onmessage = (event) => {
+    let cryptoDoge = JSON.parse(event.data);
+    console.log(event.data)
+    cryptoPriceDoge.innerText ='$'+parseFloat(cryptoDoge.p) 
+}
+
+
+let wscake = new WebSocket('wss://stream.binance.com:9443/ws/cakeusdt@trade');
+let cryptoPriceCake = document.getElementById('cake-price');
+
+wscake.onmessage = (event) => {
+    let cryptoCake = JSON.parse(event.data);
+    console.log(event.data)
+    cryptoPriceCake.innerText ='$'+parseFloat(cryptoCake.p) 
+}
+
+
+let wsada = new WebSocket('wss://stream.binance.com:9443/ws/adausdt@trade');
+let cryptoPriceAda = document.getElementById('ada-price');
+
+wsada.onmessage = (event) => {
+    let cryptoAda = JSON.parse(event.data);
+    console.log(event.data)
+    cryptoPriceAda.innerText ='$'+parseFloat(cryptoAda.p) 
+}

@@ -87,9 +87,6 @@
                                     <th class="text-gray-900" scope="row">
                                         Bitcoin
                                     </th>
-                                    <!--td class="fw-bolder text-gray-500">
-                                        1,000,000,000
-                                    </td-->
                                     <td class="fw-bolder text-gray-500" id="btc-price"> 
                                     </td>
                                     <!--DIV RANK BTC - IMG QUESTION MARK TOOTLIP-->
@@ -142,7 +139,63 @@
                                             </div>
                                         </div>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-gray-900" scope="row">
+                                        Doge
+                                    </th>
+                                    <td class="fw-bolder text-gray-500" id="doge-price">
+                                    </td>
 
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div>
+                                                    <h6>     
+                                                        <span class="{{claseDoge}}">{{rankDoge}}</span>
+                                                    </h6>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-gray-900" scope="row">
+                                        Cake
+                                    </th>
+                                    <td class="fw-bolder text-gray-500" id="cake-price">
+                                    </td>
+
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div>
+                                                    <h6>     
+                                                        <span class="{{claseCake}}">{{rankCake}}</span>
+                                                    </h6>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-gray-900" scope="row">
+                                        Cardano
+                                    </th>
+                                    <td class="fw-bolder text-gray-500" id="ada-price">
+                                    </td>
+
+                                    <td class="container fw-bolder text-gray-500 row align-items-center">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div>
+                                                    <h6>     
+                                                        <span class="{{claseAda}}">{{rankAda}}</span>
+                                                    </h6>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -167,7 +220,7 @@
                     <div>
                         <div class="card">
                             <a href="/art-trader/{{ crypto.link }}">
-                            <img class="mx-auto row align-items-center" src="{{ crypto.fotoCrypto }}" title='BTC' height="250" width="250">
+                            <img class="mx-auto row align-items-center" src="{{ crypto.fotoCrypto }}" title='{{crypto.nombreCriptomoneda}}' height="250" width="250">
                             </a>
                             <div class="">
                                 <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{ crypto.link }}">Conoce a {{ crypto.nombreCriptomoneda }}</a>
