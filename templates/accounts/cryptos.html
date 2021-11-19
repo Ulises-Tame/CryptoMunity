@@ -15,122 +15,32 @@
                         <h2 class="fs-5 fw-bold mb-0">Criptomonedas</h2>
                     </div>
                 </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="col-12 mb-4">
-                    <div>
-                        <div class="card">
-                            <img class="mx-auto" src="/static/assets/img/cryptos/BTC_Logo.svg" title='BTC' height="250" width="250">
-                            <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'BTC'}}">Conoce a Bitcoin</a>
-                                <div class="card border-0 shadow">
-                                    <div class="card-body">
-                                        <!--span class="badge bg-success">Good crypto</span-->
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="col-12 mb-4">
-                    <div>
-                        <div class="card ">
-                            <img class="mx-auto" src="/static/assets/img/cryptos/ethereum-eth.svg" title='ETH' height="250" width="250">
-                            <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'ETH'}}">Conoce a Ethereum</a>
-                                <div class="card border-0 shadow">
-                                    <div class="card-body">
-                                        <!--span class="badge bg-success">Good crypto</span-->
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="col-12 mb-4">
-                    <div>
-                        <div class="card">
-                            <img class="mx-auto"  src="/static/assets/img/cryptos/solana-logo.svg" title='SOL' height="250" width="250">
-                            <div class="">
-                                <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'SOL'}}">Conoce a Solana</a>
-                                <div class="card border-0 shadow">
-                                    <div class="card-body">
-                                         <!--span class="badge bg-success">Good crypto</span-->
+                <div class="row">
+                    {% for crypto in cryptos %}
+                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                        <div class="col-12 mb-4">
+                            <div>
+                                <div class="card">
+                                    <a href="/art-trader/{{ crypto.link }}">
+                                    <img class="mx-auto row align-items-center" src="{{ crypto.fotoCrypto }}" title='{{crypto.nombreCriptomoneda}}' height="250" width="250">
+                                    </a>
+                                    <div class="">
+                                        <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{ crypto.link }}">Conoce a {{ crypto.nombreCriptomoneda }}</a>
+                                        <div class="card border-0 shadow">
+                                            <div class="card-body">
+                                                <!--span class="badge bg-success">Good crypto</span-->
+                                           </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+        
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-12 mb-4">
-        <div class="border-0">
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="col-12 mb-4">
-                            <div>
-                                <div class="card">
-                                    <img class="mx-auto" src="https://cryptologos.cc/logos/pancakeswap-cake-logo.svg?v=014" title='CAKE' height="250" width="250">
-                                    <div class="">
-                                        <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'CAKE'}}">Conoce a PancakeSwap</a>
-                                        <div class="card border-0 shadow">
-                                            <div class="card-body">
-                                                <!--span class="badge bg-success">Good crypto</span-->
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="col-12 mb-4">
-                            <div>
-                                <div class="card ">
-                                    <img class="mx-auto" src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014" title='DOGE' height="250" width="250">
-                                    <div class="">
-                                        <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'DOGE'}}">Conoce a Dogecoin</a>
-                                        <div class="card border-0 shadow">
-                                            <div class="card-body">
-                                                <!--span class="badge bg-success">Good crypto</span-->
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="col-12 mb-4">
-                            <div>
-                                <div class="card">
-                                    <img class="mx-auto"  src="https://cryptologos.cc/logos/cardano-ada-logo.svg?v=014" title='ADA' height="250" width="250">
-                                    <div class="">
-                                        <a class="card-body fs-5 fw-bold mb-0 col d-block d-xl-flex align-items-center" href="/art-trader/{{'ADA'}}">Conoce a Cardano</a>
-                                        <div class="card border-0 shadow">
-                                            <div class="card-body">
-                                                <!--span class="badge bg-success">Good crypto</span-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>    
     </div>
     
 

@@ -8,8 +8,8 @@
 {% block content %}
 
     <main>
-        <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
-            <div class="container min-vh-100 min-vw-100    col-12 d-flex align-items-center justify-content-center" data-background-lg="/static/assets/img/bitcoin3.jpg">
+        <section class="background-login vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+            <div class="container min-vh-100 min-vw-100    col-12 d-flex align-items-center justify-content-center">
                 <div class="row justify-content-center form-bg-image">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
@@ -22,7 +22,7 @@
                                     {% if msg %}
                                         {{ msg | safe }}
                                     {% else %}
-                                        Trader/Investigador
+                                    
                                     {% endif %}                                     
                                 </p> 
                             </div>
@@ -55,10 +55,10 @@
                                     <!-- End of Form -->
                                     <div class="d-flex justify-content-between align-items-top mb-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="remember">
+                                            <!--input class="form-check-input" type="checkbox" value="" id="remember">
                                             <label class="form-check-label mb-0" for="remember">
                                               Recordar usuario
-                                            </label>
+                                            </label-->
                                         </div> 
                                         <!--div><a href="/page-forgot-password.html" class="small text-right">Recuperar contraseña</a></div-->
                                     </div>
@@ -69,16 +69,24 @@
                             </form>
                             <br />
                     
-                            <label>Registrate Como:</label>
-                            <div class="d-flex justify-content-center align-items-center mt-4">
+                            <div class="d-flex align-items-center mt-4">
                                 <span class="fw-normal">                                
-                                    <a href="{{ url_for('auth.signup') }}" class="fw-bold p-sm-4">Trader</a>
-                                    <a href="{{ url_for('auth.investigador') }}" class="fw-bold  p-sm-4">Investigador</a>
+                                    <a href="{{ url_for('auth.signup') }}" class="fw-bold blockquote blockquote-footer">Registrarme ahora</a>
+                                    <!--a href="{{ url_for('auth.investigador') }}" class="fw-bold  p-sm-4">Investigador</a-->
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="bubbles"> 
+                <img src="https://cryptologos.cc/logos/pancakeswap-cake-logo.svg?v=014"> 
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=014"> 
+                <img src=""> 
+                <img src=""> 
+                <img src=""> 
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=014"> 
+                <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.svg?v=014"> 
             </div>
         </section>
     </main>

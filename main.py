@@ -93,8 +93,9 @@ def profile():
 @login_required
 def cryptomonedas():
     if current_user.tipoUsuario == 'Trader':
+        cryptos= get_all_cryptos()
         insert_evento_cryptos()
-        return render_template('accounts/cryptos.html', name=current_user.nombreUsuario, segment='profile')
+        return render_template('accounts/cryptos.html', name=current_user.nombreUsuario, segment='profile', cryptos = cryptos)
     else:
         return redirect(url_for('main.profile_investigador'))        
 
@@ -107,15 +108,14 @@ def articulos_trader(crypto):
     else: 
         return redirect(url_for('main.profile'))  
     articulos = get_articulos_by_crypto(crypto)
-    botones = promedio(articulos)
+    boton = promedio(articulos)
     criptomoneda = get_crypto(crypto)
     for crypto_ in criptomoneda:
         nombrecrypto = crypto_.nombreCriptomoneda
         foto = crypto_.fotoCrypto
         descripcion = crypto_.descripcion
-    for boton in botones:
-        clase = boton.clase
-        rank = boton.rank
+    clase = boton.clase
+    rank = boton.rank
     insert_evento_crypto()
     return render_template('accounts/trader_articulos.html', name=current_user.nombreUsuario, segment='profile', articulos_crypto=articulos, nombrecrypto=nombrecrypto, fotocrypto=foto, descripcion=descripcion, clase=clase, rank=rank)
 
