@@ -53,7 +53,7 @@ def insert_articulo(articulo):
 
 
 def get_boton(tipo):
-    boton= Botones.query.filter(Botones.tipo==tipo).all()
+    boton= Botones.query.filter(Botones.tipo==tipo).first()
     return boton
 
 def get_all_cryptos():

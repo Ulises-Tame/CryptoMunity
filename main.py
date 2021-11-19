@@ -61,22 +61,30 @@ def profile():
         btc = get_articulos_by_crypto("BTC")
         eth = get_articulos_by_crypto("ETH")
         sol = get_articulos_by_crypto("SOL")
+        doge = get_articulos_by_crypto("DOGE")
+        cake = get_articulos_by_crypto("CAKE")
+        cardano = get_articulos_by_crypto("ADA")
+
         botonBtc = promedio(btc)
         botonEth = promedio(eth)    
         botonSol = promedio(sol)
-        for boton in botonBtc:
-            claseBtc = boton.clase
-            rankBtc = boton.rank
+        botonDoge = promedio(doge)
+        botonCake = promedio(cake)
+        botonCardano = promedio(cardano)
+        claseBtc = botonBtc.clase
+        rankBtc = botonBtc.rank
+        claseEth = botonEth.clase
+        rankEth = botonEth.rank
+        claseSol = botonSol.clase
+        rankSol = botonSol.rank
+        claseDoge = botonDoge.clase
+        rankDoge = botonDoge.rank
+        claseCake = botonCake.clase
+        rankCake = botonCake.rank
+        claseAda = botonCardano.clase
+        rankAda = botonCardano.rank
 
-        for boton in botonEth:
-            claseEth = boton.clase
-            rankEth = boton.rank
-
-        for boton in botonSol:
-            claseSol = boton.clase
-            rankSol = boton.rank
-
-        return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile', claseBtc = claseBtc, rankBtc = rankBtc, claseEth = claseEth, rankEth = rankEth, claseSol = claseSol, rankSol = rankSol, cryptos=cryptos )
+        return render_template('accounts/profile_trader.html', name=current_user.nombreUsuario, segment='profile', claseBtc = claseBtc, rankBtc = rankBtc, claseEth = claseEth, rankEth = rankEth, claseSol = claseSol, rankSol = rankSol, claseDoge = claseDoge, rankDoge = rankDoge, claseCake = claseCake, rankCake = rankCake, claseAda = claseAda, rankAda = rankAda, cryptos=cryptos )
     else:
         insert_evento_perfil()
         return redirect(url_for('main.profile_investigador'))
