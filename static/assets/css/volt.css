@@ -20,6 +20,11 @@
   .datepicker.active {
     display: block; }
 
+.hero{ 
+      background-size: cover;
+}    
+
+
 .datepicker-dropdown {
   position: absolute;
   top: 0;
