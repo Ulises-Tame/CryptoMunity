@@ -159,7 +159,7 @@ def articulos_post():
     cliente = get_authenticate_client()
     sentimiento = sentiment_analysis(cliente,publicación)
     valoración =  check_sentimiento(sentimiento)
-    print(imagen)
+
 
     nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,cryptoRelacionada=crypto,idUsuario=current_user.id,sentimiento= valoración,fotoArticulo=str(imagen))
     insert_articulo(nuevo_articulo)
@@ -201,16 +201,3 @@ def voz():
     }
     print(texto)
     return jsonify(texto_json)
-
-@main.route('/fotos')
-def llenar():
-    articulos = get_all_articulos()
-    for articulo in articulos:
-        aleatorio = randint(1,66)
-        photo = get_photo_by_id(aleatorio)
-        if articulo.fotoArticulo == None:
-            articulo.fotoArticulo = photo
-            db.session.add(articulo)
-            db.session.commit()
-
-    return "succesful"
