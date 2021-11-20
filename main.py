@@ -172,7 +172,7 @@ def articulos_post():
     nuevo_articulo= Articulos(nombreArticulo=titulo, autorArticulo=current_user.nombreUsuario,articulo=publicación,noEdicion=1,estatusArticulo=1,cryptoRelacionada=crypto,idUsuario=current_user.id,sentimiento= valoración,fotoArticulo=str(imagen))
     insert_articulo(nuevo_articulo)
     insert_evento_nuevoarticulo()
-    return render_template('accounts/agregar_articulo.html', name=current_user.nombreUsuario, segment='articulos')
+    return redirect(url_for('main.profile'))
 
 
 @main.route('/articulos/edit/<int:id>')
