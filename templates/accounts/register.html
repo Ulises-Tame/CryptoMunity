@@ -115,7 +115,7 @@
                             <div class="d-flex align-items-center mt-4">
                                 <span class="fw-normal">                                
                                     <!--a href="{{ url_for('auth.signup') }}" class="fw-bold blockquote blockquote-footer">Registrarme ahora</a-->
-                                    <a href="{{ url_for('auth.investigador') }}" class="fw-bold blockquote blockquote-footer">¿Quiéres ser investigador?</a>
+                                    <a id="investigador" class="fw-bold blockquote blockquote-footer">¿Quiéres ser investigador?</a>
                                 </span>
                             </div>
                         </div>
@@ -156,5 +156,23 @@
                 timer: 1500
             })
         });
-</script>  
+</script>
+
+<script>
+    const investigador = document.getElementById('investigador');
+    investigador.addEventListener('click', function () {
+        Swal.fire({
+    title:'¿Quieres ser investigador?',
+    text: 'Un investigador es un experto que ayuda a la comunidad a aprender sobre las Criptomonedas escribiendo artículos',
+    showCancelButton: true, 
+    confirmButtonText: 'Sí quiero',
+    }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+        window.location.href = "investigador"
+    }
+    })
+    })
+
+</script>
 {% endblock javascripts %}
